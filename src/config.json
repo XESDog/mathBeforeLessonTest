@@ -1,0 +1,130 @@
+{
+  "map": {
+  },
+  "levels": [
+    {
+      "name": "注意力",
+      "questions": [
+        {
+          "describe": "这里是第一道题,以下哪个是'b'",
+          "options": [
+            "A:a",
+            "B:b",
+            "C:c",
+            "D:d"
+          ],
+          "answerIndex": [
+            1
+          ]
+        },
+        {
+          "describe": "这里是第二道题,以下哪个是'c'",
+          "options": [
+            "A:a",
+            "B:b",
+            "C:c",
+            "D:d"
+          ],
+          "answerIndex": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "专注力",
+      "questions": [
+        {
+          "describe": "这里是第一道题,以下哪个是'b'",
+          "options": [
+            "A:a",
+            "B:b",
+            "C:c",
+            "D:d"
+          ],
+          "answerIndex": [
+            1
+          ]
+        },
+        {
+        }
+      ]
+    },
+    {
+      "name": "专注力",
+      "questions": [
+        {
+          "describe": "这里是第一道题,以下哪个是'b'",
+          "options": [
+            "A:a",
+            "B:b",
+            "C:c",
+            "D:d"
+          ],
+          "answerIndex": [
+            1
+          ]
+        },
+        {
+        }
+      ]
+    },
+    {
+      "name": "专注力",
+      "questions": [
+        {
+          "describe": "这里是第一道题,以下哪个是'b'",
+          "options": [
+            "A:a",
+            "B:b",
+            "C:c",
+            "D:d"
+          ],
+          "answerIndex": [
+            1
+          ]
+        },
+        {
+        }
+      ]
+    },
+    {
+      "name": "专注力",
+      "questions": [
+        {
+          "describe": "这里是第一道题,以下哪个是'b'",
+          "options": [
+            "A:a",
+            "B:b",
+            "C:c",
+            "D:d"
+          ],
+          "answerIndex": [
+            1
+          ]
+        },
+        {
+        }
+      ]
+    },
+    {
+      "name": "专注力",
+      "questions": [
+        {
+          "describe": "这里是第一道题,以下哪个是'b'",
+          "options": [
+            "A:a",
+            "B:b",
+            "C:c",
+            "D:d"
+          ],
+          "answerIndex": [
+            1
+          ]
+        },
+        {
+        }
+      ]
+    }
+  ]
+}
