@@ -14,6 +14,25 @@ export const currentQuestionContent = state => {
  * @param state
  * @return {boolean}
  */
-export const complete=state=>{
+export const complete = state => {
   return state.totalLevel - 1 === state.currentLevel && state.totalQuestion - 1 === state.currentQuestion;
+}
+export const answerTime = state => {
+  return state.answerTime;
+}
+/**
+ * 静态文件地址
+ * @param state
+ * @return {string}
+ */
+export const staticPath = state => {
+  return 'static/level_' + state.currentLevel + '/question_' + state.currentQuestion + '/';
+}
+/**
+ * 是否当前关卡的最后一个问题
+ * @param state
+ * @return {boolean}
+ */
+export const lastQuestion=state=>{
+  return state.totalQuestion-1 === state.currentQuestion;
 }

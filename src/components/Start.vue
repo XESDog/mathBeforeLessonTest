@@ -10,5 +10,11 @@
 </script>
 <style scoped>
 
+  /*button{*/
+    /*position: absolute;*/
+    /*right: 10px;*/
+    /*bottom: 10px;*/
+  /*}*/
+
 </style>
 

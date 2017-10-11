@@ -1,30 +1,21 @@
 {
   "map": {
   },
+  "answerTime":120,
   "levels": [
     {
-      "name": "注意力",
+      "name": "运算能力",
       "questions": [
         {
-          "describe": "这里是第一道题,以下哪个是'b'",
-          "options": [
-            "A:a",
-            "B:b",
-            "C:c",
-            "D:d"
-          ],
+          "describe": "算一算，哪个计算结果重复的次数最多？（10分）",
+          "option":3,
           "answerIndex": [
-            1
+            2
           ]
         },
         {
           "describe": "这里是第二道题,以下哪个是'c'",
-          "options": [
-            "A:a",
-            "B:b",
-            "C:c",
-            "D:d"
-          ],
+          "option": 3,
           "answerIndex": [
             2
           ]
@@ -36,12 +27,7 @@
       "questions": [
         {
           "describe": "这里是第一道题,以下哪个是'b'",
-          "options": [
-            "A:a",
-            "B:b",
-            "C:c",
-            "D:d"
-          ],
+          "option":3,
           "answerIndex": [
             1
           ]
@@ -51,16 +37,11 @@
       ]
     },
     {
-      "name": "专注力",
+      "name": "推理能力",
       "questions": [
         {
           "describe": "这里是第一道题,以下哪个是'b'",
-          "options": [
-            "A:a",
-            "B:b",
-            "C:c",
-            "D:d"
-          ],
+          "option": 3,
           "answerIndex": [
             1
           ]
@@ -70,16 +51,11 @@
       ]
     },
     {
-      "name": "专注力",
+      "name": "观察能力",
       "questions": [
         {
           "describe": "这里是第一道题,以下哪个是'b'",
-          "options": [
-            "A:a",
-            "B:b",
-            "C:c",
-            "D:d"
-          ],
+          "option":3,
           "answerIndex": [
             1
           ]
@@ -89,16 +65,11 @@
       ]
     },
     {
-      "name": "专注力",
+      "name": "动手能力",
       "questions": [
         {
           "describe": "这里是第一道题,以下哪个是'b'",
-          "options": [
-            "A:a",
-            "B:b",
-            "C:c",
-            "D:d"
-          ],
+          "option":3,
           "answerIndex": [
             1
           ]
@@ -108,16 +79,11 @@
       ]
     },
     {
-      "name": "专注力",
+      "name": "时间管理能力",
       "questions": [
         {
           "describe": "这里是第一道题,以下哪个是'b'",
-          "options": [
-            "A:a",
-            "B:b",
-            "C:c",
-            "D:d"
-          ],
+          "option": 3,
           "answerIndex": [
             1
           ]
