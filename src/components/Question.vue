@@ -24,19 +24,21 @@
     </div>
     <button
       class="nextBtn"
-      v-show="!$store.getters.complete"
+      v-show="!complete"
       @click="submit">
     </button>
-    <button v-show="$store.getters.complete"
-            @click="$router.push('/histogram')"
-    >查看报告
+    <button v-show="complete"
+            class="nextBtn"
+            @click="submit"
+    >
     </button>
     <div v-show="passedLevel" class="passed full">
       <div class="modal"></div>
       <div class="center">
         <img style="width: 9.85rem;" src="../assets/passed.png"/>
-        <p>{{$store.getters.currentLevelName}}:{{rank}}</p>
-        <button @click="toNext"></button>
+        <p>{{$store.getters.currentLevelName}}:{{rank ? rank.rank : ''}}</p>
+        <button v-show="!complete" @click="toNext"></button>
+        <button v-show="complete" @click="$router.push('./summary')"></button>
       </div>
     </div>
   </div>
@@ -103,12 +105,12 @@
       position: absolute;
       background-color: rgba(0, 0, 0, 0.8);
     }
-    p{
+    p {
       left: 42%;
       color: black;
       transform: translate(-50%);
       bottom: 1.8rem;
-      font-size:0.6rem;
+      font-size: 0.6rem;
       position: absolute;
     }
   }
@@ -159,17 +161,6 @@
       img {
         width: 3.32rem;
       }
-     /* p {
-        color: rgb(255, 255, 255);
-        position: absolute;
-        bottom: 0.4rem;
-        font-size: 1.8rem;
-        margin: 0px auto;
-        width: 3.2rem;
-        text-shadow: 1px 0 10px $fontStrokeColor, 0 1px 10px $fontStrokeColor,
-        0 -1px 10px $fontStrokeColor, -1px 0 10px $fontStrokeColor;
-
-      }*/
       input {
         display: none;
       }

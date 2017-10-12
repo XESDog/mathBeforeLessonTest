@@ -1,24 +1,31 @@
 {
   "map": {
   },
-  "answerTime":120,
-  "scoreEveryQuestion":10,
+  "answerTime": 120,
+  "scoreEveryQuestion": 10,
   "levels": [
     {
       "name": "运算能力",
       "questions": [
         {
-          "describe": "算一算，哪个计算结果重复的次数最多？（10分）",
-          "option":3,
+          "describe": "算一算，帮小青蛙找到对应的荷叶，哪个荷叶上小青蛙的个数最多？",
+          "option": 3,
           "answerIndex": [
             2
           ]
         },
         {
-          "describe": "这里是第二道题,以下哪个是'c'",
+          "describe": "",
           "option": 3,
           "answerIndex": [
-            2
+            1
+          ]
+        },
+        {
+          "describe": "",
+          "option": 3,
+          "answerIndex": [
+            1
           ]
         }
       ]
@@ -27,8 +34,8 @@
       "name": "专注力",
       "questions": [
         {
-          "describe": "这里是第一道题,以下哪个是'b'",
-          "option":3,
+          "describe": "",
+          "option": 3,
           "answerIndex": [
             1
           ]
@@ -52,7 +59,7 @@
       "questions": [
         {
           "describe": "这里是第一道题,以下哪个是'b'",
-          "option":3,
+          "option": 3,
           "answerIndex": [
             1
           ]
@@ -63,10 +70,10 @@
       "name": "动手能力",
       "questions": [
         {
-          "describe": "这里是第一道题,以下哪个是'b'",
-          "option":3,
+          "describe": "看下面的纸片，把剪下来的图形圈出来？",
+          "option": 3,
           "answerIndex": [
-            1
+            2
           ]
         }
       ]
@@ -75,7 +82,7 @@
       "name": "时间管理能力",
       "questions": [
         {
-          "describe": "这里是第一道题,以下哪个是'b'",
+          "describe": "下图是（     ）年（     ）月的日历，这个月有（     ）天",
           "option": 3,
           "answerIndex": [
             1

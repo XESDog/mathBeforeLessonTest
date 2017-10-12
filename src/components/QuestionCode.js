@@ -1,5 +1,8 @@
+import {currentQuestionContent} from "../store/getters";
+
 const _ = require('lodash');
 const dateFormat = require('dateformat');
+const {mapState, mapGetters} = require('vuex');
 let time;
 
 export default {
@@ -11,32 +14,21 @@ export default {
     }
   },
   computed: {
-    questionContent: {
-      get() {
-        return this.$store.getters.currentQuestionContent;
-      }
-    },
-    path: {
-      get() {
-        return this.$store.getters.staticPath;
-      }
-    },
-    lastQuestion: {
-      get() {
-        return this.$store.getters.lastQuestion;
-      }
-    },
     formattedTime: {
       get() {
         if (this.passedTime === 0) return '00:00';
         return dateFormat(this.passedTime * 1000, 'MM:ss');
       }
     },
-    rank: {
-      get() {
-        return this.$store.getters.currentLevelRank;
-      }
-    }
+    ...mapState({}),
+    ...mapGetters({
+      complete: 'complete',
+      path: 'staticPath',
+      lastQuestion: 'lastQuestion',
+      currentLevelLastQuestion: 'currentLevelLastQuestion',
+      rank: 'currentLevelRank',
+      questionContent: 'currentQuestionContent',
+    })
   },
   methods: {
     getLabelImgPath(index) {
@@ -56,7 +48,7 @@ export default {
      */
     submit() {
       this.$store.dispatch('submit', {userAnswer: [this.userAnswer], passedTime: this.passedTime})
-      if (this.lastQuestion) {
+      if (this.currentLevelLastQuestion) {
         this.passedLevel = true;
       } else {
         this.toNext();

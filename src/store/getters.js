@@ -33,9 +33,18 @@ export const staticPath = state => {
  * @param state
  * @return {boolean}
  */
-export const lastQuestion = state => {
+export const currentLevelLastQuestion = state => {
   return state.totalQuestion - 1 === state.currentQuestion;
-};
+}
+/**
+ * 最后一个问题
+ * @param state
+ * @return {boolean}
+ */
+export const lastQuestion = state => {
+  return state.totalLevel - 1 === state.currentLevel && state.totalQuestion - 1 === state.currentLevel
+}
+
 export const currentLevelName = state => {
   return state.levels[state.currentLevel].name
 }

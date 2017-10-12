@@ -23,6 +23,7 @@ const state = {
   userAnswers: [],
   /**
    * 每一关的评级
+   * [{rank:'A',rate:'0.9'}]
    */
   levelRanks: [],
   answerTime: config.answerTime,//每道题的答题时间，超过则直接下一道题
