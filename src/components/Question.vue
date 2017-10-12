@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!--背景-->
-    <img class="bg" :src="path+'bg.png'">
+    <img class="full" src="../assets/questionBg.jpg">
     <!--题目-->
     <div class="describe">{{questionContent.describe}}</div>
     <!--答题时间-->
@@ -11,29 +11,33 @@
     <!--选项-->
     <div class="optionContainer">
       <div class="option" v-for="index in questionContent.option">
-        <input type="checkbox"
+        <!--这里value='index-1'，因为v-for以1为初始值-->
+        <input type="radio"
                :id="'option'+index"
-               :value="index"
+               :value="index-1"
                v-model="userAnswer"
         >
         <label :for="'option'+index">
-          <img :src="path+'option_'+(index-1)+'.png'">
+          <img :src="getLabelImgPath(index-1)">
         </label>
       </div>
     </div>
-    <div
+    <button
       class="nextBtn"
       v-show="!$store.getters.complete"
       @click="submit">
-      <img src="../assets/nextBtn.png" style="width: 2rem">
-    </div>
+    </button>
     <button v-show="$store.getters.complete"
             @click="$router.push('/histogram')"
     >查看报告
     </button>
-    <div v-show="passedLevel" class="passed">
-      <p>恭喜通关</p>
-      <button @click="toNext">下一关</button>
+    <div v-show="passedLevel" class="passed full">
+      <div class="modal"></div>
+      <div class="center">
+        <img style="width: 9.85rem;" src="../assets/passed.png"/>
+        <p>{{$store.getters.currentLevelName}}:{{rank}}</p>
+        <button @click="toNext"></button>
+      </div>
     </div>
   </div>
 </template>
@@ -45,18 +49,67 @@
   $fontStrokeColor: #097409;
   $globalWidth: 19.2rem;
   $globalHeight: 10.8rem;
+
+  @mixin imgButton($prefix) {
+    background: url('#{$prefix}Normal.png') no-repeat;
+    background-size: cover;
+    border: 0px;
+    cursor: pointer;
+    &:hover {
+      background: url('#{$prefix}Over.png') no-repeat;
+      background-size: cover;
+    }
+    &:active {
+      background: url('#{$prefix}Down.png') no-repeat;
+      background-size: cover;
+    }
+    outline: none;
+  }
+
   .container {
     height: 100%;
   }
 
-  .bg {
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .full {
+    left: 0px;
+    top: 0px;
     width: $globalWidth;
     height: $globalHeight;
   }
-  .passed{
+
+  .passed {
+    position: absolute;
     color: white;
-    button{
-      position: static;
+    /*下一关按钮*/
+    button {
+      position: absolute;
+      left: 48%;
+      transform: translate(-50%);
+      bottom: 1rem;
+      width: 2.21rem;
+      height: 0.89rem;
+      @include imgButton('../assets/nextLevel')
+    }
+    .modal {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    p{
+      left: 42%;
+      color: black;
+      transform: translate(-50%);
+      bottom: 1.8rem;
+      font-size:0.6rem;
+      position: absolute;
     }
   }
 
@@ -64,10 +117,10 @@
     bottom: 0.9rem;
     right: 0.6rem;
     position: absolute;
+    width: 2rem;
+    height: 0.8rem;
 
-    &:hover {
-      cursor: pointer;
-    }
+    @include imgButton('../assets/nextQuestion')
   }
 
   .describe {
@@ -89,16 +142,15 @@
 
   .stem {
     position: absolute;
-    width: 9.38rem;
-    height: 5.05rem;
-    left: 5rem;
+    width: 11rem;
+    left: 4rem;
     top: 1.6rem;
   }
 
   .optionContainer {
     display: flex;
     justify-content: center;
-    bottom: 1rem;
+    bottom: 0.4rem;
     position: absolute;
     width: $globalWidth;
 
@@ -107,7 +159,7 @@
       img {
         width: 3.32rem;
       }
-      p {
+     /* p {
         color: rgb(255, 255, 255);
         position: absolute;
         bottom: 0.4rem;
@@ -117,12 +169,11 @@
         text-shadow: 1px 0 10px $fontStrokeColor, 0 1px 10px $fontStrokeColor,
         0 -1px 10px $fontStrokeColor, -1px 0 10px $fontStrokeColor;
 
-      }
+      }*/
       input {
         display: none;
       }
-
-      &:hover {
+      label {
         cursor: pointer;
       }
     }

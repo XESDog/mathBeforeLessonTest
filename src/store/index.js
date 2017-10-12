@@ -21,8 +21,13 @@ const state = {
    *
    */
   userAnswers: [],
-  answerTime:config.answerTime,//每道题的答题时间，超过则直接下一道题
-}
+  /**
+   * 每一关的评级
+   */
+  levelRanks: [],
+  answerTime: config.answerTime,//每道题的答题时间，超过则直接下一道题
+  scoreEveryQuestion: config.scoreEveryQuestion,
+};
 
 const store = new Vuex.Store({
   state,

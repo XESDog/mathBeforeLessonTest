@@ -9,11 +9,7 @@ export const nextLevel = state => {
 
   state.currentLevel++;
   state.currentQuestion = 0;
-
-  // const level = state.levels[state.currentLevel];
-  // const questions = level.questions;
-
-  // state.totalQuestion = questions.length;
+  state.totalQuestion = state.levels[state.currentLevel].questions.length;
 }
 
 export const nextQuestion = state => {
@@ -22,4 +18,92 @@ export const nextQuestion = state => {
     return;
   }
   state.currentQuestion++;
+}
+
+
+/**
+ * 当前关卡评级
+ * @param state
+ */
+const currentLevelRank = (state) => {
+  if (!state.userAnswers[state.currentLevel]) return;
+  let answers = state.userAnswers[state.currentLevel];
+  let getedScore = 0;
+  let rate;
+  answers.forEach(value => {
+    getedScore += value.score;
+  })
+  rate = getedScore / (state.totalQuestion * state.scoreEveryQuestion);
+  if (rate < 0.1) {
+    return "D"
+  }
+  if (rate < 0.7) {
+    return "C"
+  }
+  if (rate < 0.85) {
+    return "B"
+  }
+  if (rate < 0.9) {
+    return 'A'
+  }
+  return 'A+';
+}
+/**
+ * 检测当前回答是否正确
+ * @param state
+ * @param userAnswer
+ * @param callback
+ * @return {boolean|*}
+ */
+const check = (state, userAnswer) => {
+  //当前问题的正确答案
+  const correct = state.levels[state.currentLevel].questions[state.currentQuestion].answerIndex.concat();
+  const result = _.difference(correct, userAnswer);
+
+  return !result || (_.isArray(result) && result.length === 0);
+
+}
+/**
+ * 答对
+ *  35s->100%
+ *  60s->90%
+ *  120s->70%
+ *  >120s->50%
+ * 答错，0分
+ */
+const getRate = (passedTime, answerTime) => {
+  if (passedTime < 35) {
+    return 1;
+  }
+  if (passedTime < 60) {
+    return 0.9
+  }
+  if (passedTime < 120) {
+    return 0.7
+  }
+  if (passedTime === answerTime) {
+    return 0.5;
+  }
+}
+
+export const submitUserAnswer = (state, {userAnswer, passedTime}) => {
+  let level = state.currentLevel;
+  let question = state.currentQuestion;
+  let userAnswers = state.userAnswers;
+  let score = 0;
+
+  if (check(state, userAnswer)) {
+    score = state.scoreEveryQuestion * getRate(passedTime, state.answerTime);
+  }
+  if (!userAnswers[level]) {
+    userAnswers[level] = [];
+  }
+  userAnswers[level][question] = {score, userAnswer};
+  state.userAnswers = state.userAnswers.concat();
+
+  //通关，计算评级
+  if (state.currentQuestion === state.totalQuestion - 1) {
+    state.levelRanks[state.currentLevel] = currentLevelRank(state);
+    state.levelRanks = state.levelRanks.concat();
+  }
 }

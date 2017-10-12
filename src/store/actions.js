@@ -11,22 +11,14 @@ export const toNextQuestion = ({commit}) => {
  * 每题的答案提交
  * @param commit
  * @param state
- * @param userAnswer
+ * @param getters
+ * @param answer
  */
-export const submit = ({commit, state}, userAnswer) => {
-
-  let level = state.currentLevel
-  let question = state.currentQuestion
-  let userAnswers = state.userAnswers;
-
-  if (!userAnswers[level]) {
-    userAnswers[level] = [];
-  }
-  userAnswers[level][question] = userAnswer;
-
+export const submit = ({commit, state, getters}, answer) => {
+  commit('submitUserAnswer', answer)
 }
 /**
- * 下一步，当前关卡题目完成，自动跳到下一关，知道全部题目完成
+ * 下一步，当前关卡题目完成，自动跳到下一关，直到全部题目完成
  * @param dispatch
  * @param commit
  * @param state
@@ -44,20 +36,9 @@ export const toNext = ({dispatch, commit, state}) => {
     } else {
       dispatch('toNextQuestion');
     }
+
   }
 }
-/**
- * 检测当前回答是否正确
- * @param state
- * @param userAnswer
- * @return {boolean|*}
- */
-export const check = ({state}, userAnswer) => {
-  //当前问题的正确答案
-  const correct = state.levels[state.currentLevel].questions[state.currentQuestion].answerIndex.concat();
-  const result = _.difference(correct, userAnswer);
-  return !result || (_.isArray(result) && result.length === 0)
 
-}
 
 

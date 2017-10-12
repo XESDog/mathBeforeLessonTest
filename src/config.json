@@ -2,6 +2,7 @@
   "map": {
   },
   "answerTime":120,
+  "scoreEveryQuestion":10,
   "levels": [
     {
       "name": "运算能力",
@@ -31,8 +32,6 @@
           "answerIndex": [
             1
           ]
-        },
-        {
         }
       ]
     },
@@ -45,8 +44,6 @@
           "answerIndex": [
             1
           ]
-        },
-        {
         }
       ]
     },
@@ -59,8 +56,6 @@
           "answerIndex": [
             1
           ]
-        },
-        {
         }
       ]
     },
@@ -73,8 +68,6 @@
           "answerIndex": [
             1
           ]
-        },
-        {
         }
       ]
     },
@@ -87,8 +80,6 @@
           "answerIndex": [
             1
           ]
-        },
-        {
         }
       ]
     }
