@@ -15,6 +15,8 @@ const state = {
   totalLevel: config.levels.length,//当前关卡总数
   currentQuestion: 0,
   totalQuestion: config.levels[0].questions.length,//当前关卡问题总数
+  nextLevelDescribe:config.nextLevelDescribe,
+  lastLevelDescribe:config.lastLevelDescribe,
   /**
    * 用户答题情况,二维数组表示
    * [[answer,answer],[answer]]

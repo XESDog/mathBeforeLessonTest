@@ -7,9 +7,11 @@ import store from './store';
 
 import 'babel-polyfill'
 
+const VueAwesomeSwiper = require('vue-awesome-swiper');
 require('./preload');
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.use(VueAwesomeSwiper);
 
 /* eslint-disable no-new */
 new Vue({

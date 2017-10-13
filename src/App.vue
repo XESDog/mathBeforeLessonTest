@@ -11,8 +11,9 @@
   }
 </script>
 
-<style>
-
+<style lang="scss">
+  $globalWidth:19.2rem;
+  $globalHeight:10.8rem;
   html {
     height: 100%;
   }
@@ -28,8 +29,9 @@
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     text-align: center;
-    width: 19.2rem;
-    height: 10.8rem;
+    width: $globalWidth;
+    height: $globalHeight;
+    overflow: hidden;
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -43,12 +45,6 @@
     position: absolute;
     left: 0.2rem;
     bottom: 0.4rem;
+    z-index: 999;
   }
-
-  button {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-  }
-
 </style>

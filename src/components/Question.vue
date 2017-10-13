@@ -36,7 +36,8 @@
       <div class="modal"></div>
       <div class="center">
         <img style="width: 9.85rem;" src="../assets/passed.png"/>
-        <p>{{$store.getters.currentLevelName}}:{{rank ? rank.rank : ''}}</p>
+        <p class="rank">{{currentLevelName}}:{{rank ? rank.rank : ''}}</p>
+        <p class="levelDescribe">{{complete ? lastLevelDescribe : nextLevelDescribe}}</p>
         <button v-show="!complete" @click="toNext"></button>
         <button v-show="complete" @click="$router.push('./summary')"></button>
       </div>
@@ -105,13 +106,25 @@
       position: absolute;
       background-color: rgba(0, 0, 0, 0.8);
     }
-    p {
-      left: 42%;
-      color: black;
+    .rank {
+      text-align: center;
+      left: 48%;
       transform: translate(-50%);
-      bottom: 1.8rem;
-      font-size: 0.6rem;
+      top: 6.1rem;
+      font-size: 0.46rem;
       position: absolute;
+      margin: 0px;
+      color: red;
+    }
+    .levelDescribe {
+      text-align: center;
+      left: 48%;
+      transform: translate(-50%);
+      top: 6.8rem;
+      font-size: 0.36rem;
+      position: absolute;
+      margin: 0px;
+      color: sienna;
     }
   }
 

@@ -20,7 +20,7 @@ export default {
         return dateFormat(this.passedTime * 1000, 'MM:ss');
       }
     },
-    ...mapState({}),
+    ...mapState(['lastLevelDescribe','nextLevelDescribe']),
     ...mapGetters({
       complete: 'complete',
       path: 'staticPath',
@@ -28,6 +28,7 @@ export default {
       currentLevelLastQuestion: 'currentLevelLastQuestion',
       rank: 'currentLevelRank',
       questionContent: 'currentQuestionContent',
+      currentLevelName:'currentLevelName'
     })
   },
   methods: {

@@ -4,8 +4,6 @@ import Router from 'vue-router'
 import Start from '@/components/Start'
 import GameMap from '@/components/GameMap'
 import Question from '@/components/Question'
-import Histogram from '@/components/Histogram'
-import RadarMap from '@/components/RadarMap'
 import Summary from '@/components/Summary'
 
 Vue.use(Router)
@@ -31,16 +29,6 @@ export default new Router({
       path: '/question',
       name: 'question',
       component: Question
-    },
-    {
-      path: '/histogram',
-      name: 'histogram',
-      component: Histogram
-    },
-    {
-      path: '/radarMap',
-      name: 'radarMap',
-      component: RadarMap
     },
     {
       path: '/summary',
