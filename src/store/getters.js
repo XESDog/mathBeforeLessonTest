@@ -51,3 +51,11 @@ export const currentLevelName = state => {
 export const currentLevelRank = state => {
   return state.levelRanks[state.currentLevel];
 }
+
+export const assetsPath = state => {
+  return '../assets/sharebtn.png';
+}
+export const getAllLevelRank = state => {
+  return state.levelRanks;
+}
+
