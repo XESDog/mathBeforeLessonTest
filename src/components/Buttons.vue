@@ -1,6 +1,7 @@
 <template>
   <div class="mybutton" :style="mybutton">
     <img :src="getSrc" width="100%" height="auto"/>
+
   </div>
 </template>
 <script>
@@ -35,11 +36,12 @@
       getSrc:function(){
         console.log(this.$store.getters.assetsPath)
         return this.$store.getters.assetsPath
+
       }
     },
     data:function(){
       return{
-        imgsrc:"../assets/testbtn.png"
+
       }
     }
   }

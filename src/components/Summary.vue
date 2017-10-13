@@ -4,13 +4,13 @@
              <swiper-slide class="scene1"  >
                      <div class="areabar">
                      <PercentBar v-for="(item,key,index) in percentbarList" :key="index" :width='3.13'  :color='item.color' :height='0.33' :currentNum='item.currentNum' :score="item.score" :totalNum='100' style="margin-bottom:0.32rem"/>
-
                    </div>
                    <Arrows :posx="0"/>
              </swiper-slide>
              <swiper-slide class="scene2">
                  <RadarGraphic  :point_Array="point_arry"/>
                  <Arrows :posx="-4.6" />
+
                   <!-- <Buttons src="" :x="(19.2/2)-1.21" :y="10.8*0.72"/> -->
                    <div class="congratulationList">
                      恭喜宝贝，顺利完成本次测评。<br/>宝贝的推理能力、观察能力、动手能力很强，要继续保持哦！<br/>
@@ -36,7 +36,6 @@
                  </div>
                </div>
               <div class='button2'></div>
-
              </swiper-slide>
          </swiper>
 
@@ -196,6 +195,7 @@ $con_txsize:0.4rem;//恭喜面板字体
   right:0px;
   top:7.2rem;
   cursor: pointer;
+
 }
 .scene1,.scene2,.scene3{
 position: relative;
@@ -207,6 +207,7 @@ height:10.8rem;
 }
 .scene2{
   position: relative;
+
   background-image: url(../assets/pinggu_band2.jpg);
   background-size: 100% 100%;
 }
@@ -214,6 +215,7 @@ height:10.8rem;
   position: relative;
   background-image: url(../assets/pinggu_band3.jpg);
   background-size: 100% 100%;
+
 }
 .gap{
   height:0.32rem;

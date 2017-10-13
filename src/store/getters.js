@@ -58,3 +58,4 @@ export const assetsPath = state => {
 export const getAllLevelRank = state => {
   return state.levelRanks;
 }
+

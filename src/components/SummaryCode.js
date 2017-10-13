@@ -3,7 +3,9 @@ import Buttons from './Buttons.vue';
 import PercentBar from './PercentBar.vue';
 import Arrows from './Arrows.vue';
 import RadarGraphic from './RadarGraphic.vue';
+
 import {mapState, mapGetters} from 'vuex';
+
 export default {
     data:function(){
       return {
@@ -154,7 +156,5 @@ export default {
       self.point_arry = radararr;
       console.log(this.getLevel)
       //  console.log('getAllLevelRank'+this.$store.getters.getAllLevelRank)
-
-
     }
 }
