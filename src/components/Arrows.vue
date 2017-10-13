@@ -1,9 +1,9 @@
 <template>
   <div ref="arrows"  class='arrows' :style="getDx">
 
-    <img class='arrow1' width="100%" height="auto"  src="../../static/img/arrow_graphic.png"/>
-    <img class='arrow2' width="100%" height="auto" src="../../static/img/arrow_graphic.png"/>
-    <img class='arrow3' width="100%" height="auto" src="../../static/img/arrow_graphic.png"/>
+    <img class='arrow1' width="100%" height="auto"  src="../assets/arrow_graphic.png"/>
+    <img class='arrow2' width="100%" height="auto" src="../assets/arrow_graphic.png"/>
+    <img class='arrow3' width="100%" height="auto" src="../assets/arrow_graphic.png"/>
 
   </div>
 </template>

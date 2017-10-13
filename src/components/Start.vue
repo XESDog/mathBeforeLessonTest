@@ -15,11 +15,9 @@
   img {
     width: 100%;
   }
-
   .container {
     height: 100%
   }
-
   button {
     z-index: 2;
     position: absolute;
@@ -53,4 +51,3 @@
     align-items: center;
   }
 </style>
-

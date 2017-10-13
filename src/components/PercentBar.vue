@@ -7,7 +7,7 @@
         <div class="lightbar"></div>
         <div class="gap_w"></div>
       </div>
-      <div class="scores">A</div>
+      <div class="scores">{{rankscore}}</div>
   </div>
 </template>
 <script>
@@ -17,6 +17,10 @@ export default {
     width:{
       type:Number,
       default:2
+    },
+    score:{
+      type:String,
+      default:''
     },
     height:{
       type:Number,
@@ -95,7 +99,7 @@ export default {
 
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      rankscore:this.score
 
 
     }
@@ -130,10 +134,7 @@ export default {
     width: 0.1rem;
   }
   .percentbar{
-    /*width:200px;*/
     position:relative;
-
-
     background:-webkit-gradient(linear, center top, center bottom, from(#eac69a), to(#fef5df));
 
   }
@@ -149,11 +150,16 @@ export default {
     z-index: 999;
   }
   .scores{
-    position: absolute;
+    position: relative;
     top:0px;
-    right:-0.3rem;
     font-size: 0.32rem;
     color:#f75a26;
     font-weight: bold;
+    left: 3.2rem;
+    top:-0.27rem;
+    width:0.5rem;
+    text-align: left;
+
+
   }
 </style>

@@ -43,7 +43,8 @@
       </g>
       <circle v-for="(item,index) in circlelist" :key="index" :cx="item.cx" :cy="item.cy" r="3"
        fill="#18a9ff"/>
-       <text  v-for="(item,index) in svgText" :x="item.x" :y="item.y"  fill="#9a592a" style="font-size:0.4rem;font-weight:bold;" v-html="item.text"></text>
+       <text  v-for="(item,index) in svgText" :x="item.x" :y="item.y"  fill="#9a592a" style="font-size:0.3rem;font-weight:bold;" v-html="item.text"></text>
+      <text  :x="gl_text_x" :y="gl_text_y"  fill="#9a592a" style="font-size:0.3rem;font-weight:bold;">能力</text>
   </svg>
 
 </template>
@@ -93,6 +94,8 @@
     },
     data:function(){
       return{
+        gl_text_x:0,
+        gl_text_y:0,
         circle1_x:0,
         circle1_y:100,
         circlelist:[{
@@ -246,7 +249,9 @@
                         x:pt.x-105,
                         y:pt.y,
                         text:'时间管理'
-                      })
+                      });
+                      self.gl_text_y = pt.y+30;
+                      self.gl_text_x=pt.x-80;
                         break;
                         case 6:
                         self.svgText.push({
