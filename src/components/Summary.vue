@@ -17,7 +17,6 @@
                    </div>
                    <Arrows :posx="0"/>
              </swiper-slide>
-
              <swiper-slide class="scene2">
                  <RadarGraphic  :point_Array="point_arry"/>
                  <Arrows :posx="-4.6" />

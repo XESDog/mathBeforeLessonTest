@@ -18,7 +18,7 @@ export default new Router({
     {
       path: '/',
       name: 'start',
-      component: Summary,
+      component: Start,
     },
     {
       path: '/gameMap',
