@@ -51,4 +51,3 @@ export const currentLevelName = state => {
 export const currentLevelRank = state => {
   return state.levelRanks[state.currentLevel];
 }
-
