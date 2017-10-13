@@ -28,7 +28,7 @@
         <div class="swiper-slide scene2">
 
           <RadarGraphic  :point_Array="point_arry"/>
-          <Arrows :dx='-5'/>
+          <Arrows :pdr='-5'/>
         </div>
         <div class="swiper-slide">Slide 3</div>
 
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  export default require('./RadarMapCode')
+  export default require('./SummaryCode')
 
 </script>
 <style scoped>
