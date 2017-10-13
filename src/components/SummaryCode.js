@@ -1,11 +1,21 @@
-// import Swiper from 'swiper';
-const Swiper = require('swiper');
-import PercentBar from './PercentBar.vue'
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import Buttons from './Buttons.vue';
+import PercentBar from './PercentBar.vue';
 import Arrows from './Arrows.vue';
 import RadarGraphic from './RadarGraphic.vue';
 export default {
     data:function(){
       return {
+        swiperOption: {
+          notNextTick: true,
+           pagination: '.swiper-pagination',
+           slidesPerView: 'auto',
+           centeredSlides: true,
+           resistanceRatio:0,
+
+           direction:'vertical',
+
+        } ,
         dd:500,
         point_arry:[
           [40,200],
@@ -17,19 +27,10 @@ export default {
         ]
       }
     },
-    components:{PercentBar,RadarGraphic,Arrows},
+    components:{swiper,swiperSlide,PercentBar,RadarGraphic,Arrows,Buttons},
     mounted:function(){
-      console.log(Swiper)
-     let hammer_tgt = document.querySelector('.radermap');
-      let swiper_tgt = document.querySelector('.radermap');
-
-    let swiper = new Swiper(document.getElementById('swiper-container'),{
-      direction: 'vertical',
-      loop: false,
 
 
-
- });
 
     }
 }

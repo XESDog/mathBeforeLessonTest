@@ -1,30 +1,26 @@
 <template>
   <div ref="arrows"  class='arrows' :style="getDx">
 
-    <img class='arrow1'  src="../../static/img/arrow_graphic.png"/>
-    <img class='arrow2'  src="../../static/img/arrow_graphic.png"/>
-    <img class='arrow3'  src="../../static/img/arrow_graphic.png"/>
+    <img class='arrow1' width="100%" height="auto"  src="../../static/img/arrow_graphic.png"/>
+    <img class='arrow2' width="100%" height="auto" src="../../static/img/arrow_graphic.png"/>
+    <img class='arrow3' width="100%" height="auto" src="../../static/img/arrow_graphic.png"/>
 
   </div>
 </template>
 <script>
   export default{
     props:{
-      pdl:{
-        type:Number,
-        default:0
-      },
-      pdr:{
-        type:Number,
-        default:0
-      }
+        posx:{
+          type:Number,
+          default:0
+        }
     },
     computed:{
       getDx:function(){
         const self = this;
         return {
-          paddingLeft:self.dx+'rem',
-          paddingRight:self.dx+'rem',
+          left:self.posx+'rem'
+
 
         }
       }
@@ -43,7 +39,7 @@
 img{
   display: block;
   position: relative;
-  width:0.72rem;
+  width:100%;
   height:auto;
 }
 .arrows{
@@ -51,9 +47,10 @@ img{
   margin:0 auto;
   left:0px;
   right:0px;
-  width:0.72rem;
+  width:0.68rem;
   top:9.7rem;
   opacity: 1;
+
 }
 .arrow1{
   animation:myanime1 0.8s linear 0s infinite alternate;
