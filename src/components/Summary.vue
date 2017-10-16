@@ -3,7 +3,7 @@
 
              <!-- 这部分放你要渲染的那些内容 -->
              <swiper-slide class="scene1"  >
-                   <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/img/pinggu_band1.jpg"/>
+                   <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/pinggu_band1.jpg"/>
                      <div class="areabar">
                      <PercentBar v-for="(item,key,index) in percentbarList" :key="index" :width='3.13'  :color='item.color' :height='0.33' :currentNum='item.currentNum' :score="item.score" :totalNum='100' style="margin-bottom:0.32rem"/>
                    </div>
@@ -14,8 +14,8 @@
                    <Arrows :posx="0"/>
              </swiper-slide>
              <swiper-slide class="scene2">
-                  <img style="position:absolute;opacity:0.5;left:0;top:0;width:100%;height:auto;" src="static/img/pinggu_band2.jpg"/>
-                 <RadarGraphic   :point_Array="point_arry"/>
+                  <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/pinggu_band2.jpg"/>
+
                  <Arrows :posx="-4.6" />
 
                   <!-- <Buttons src="" :x="(19.2/2)-1.21" :y="10.8*0.72"/> -->
@@ -25,9 +25,10 @@
                       点击下方“分享战绩”，邀请小伙伴一起参加测评吧~
                    </div>
                   <div class='button1'></div>
+                     <RadarGraphic   :point_Array="point_arry"/>
              </swiper-slide>
              <swiper-slide class="scene3">
-                  <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/img/pinggu_band3.jpg"/>
+                  <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/pinggu_band3.jpg"/>
                <div class="lessonTestLeft">
                  <div v-for="(item,index) in leftUlList" :key="index" class="ullist">
                    <div class="times">{{item.times}}</div>

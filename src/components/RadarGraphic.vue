@@ -1,7 +1,7 @@
 <template>
 
 
-    <svg ref="mysvg"  viewBox="0,0,1920,1080" width="100%" height="100%"  version="1.1"
+    <svg style="position:absolute;z-index:999;border:1px solid red;left:0px;" ref="mysvg"  viewBox="0,0,1920,1080" width="100%" height="100%"  version="1.1"
   xmlns="http://www.w3.org/2000/svg">
       <!-- <g>
 
