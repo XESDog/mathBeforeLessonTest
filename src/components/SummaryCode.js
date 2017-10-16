@@ -9,6 +9,7 @@ import {mapState, mapGetters} from 'vuex';
 export default {
     data:function(){
       return {
+
         swiperOption: {
           notNextTick: true,
            pagination: '.swiper-pagination',
@@ -19,7 +20,9 @@ export default {
            direction:'vertical',
 
         } ,
-        dd:500,
+        username:'刘昭廷',
+        score:'100',
+      
         //这个是雷达图
         point_arry:[
           [0,100],

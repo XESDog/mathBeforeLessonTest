@@ -6,8 +6,8 @@
                      <PercentBar v-for="(item,key,index) in percentbarList" :key="index" :width='3.13'  :color='item.color' :height='0.33' :currentNum='item.currentNum' :score="item.score" :totalNum='100' style="margin-bottom:0.32rem"/>
                    </div>
                    <div class="userinfoband">
-                      <div class='username'>刘昭廷</div>
-                      <div class='score'>score</div>
+                      <div class='username'>{{username}}</div>
+                      <div class='score'>{{score}}分</div>
                    </div>
                    <Arrows :posx="0"/>
              </swiper-slide>
