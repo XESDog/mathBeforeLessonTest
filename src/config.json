@@ -63,7 +63,7 @@
           ]
         },
         {
-          "describe": "",
+          "describe": "这里是第一道题,以下哪个是'b'",
           "option": 3,
           "answerIndex": [
             1
@@ -80,19 +80,19 @@
           "answerIndex": [
             1
           ]
-        },
-        {
-          "describe": "",
-          "option": 3,
-          "answerIndex": [
-            1
-          ]
         }
       ]
     },
     {
       "name": "动手能力",
       "questions": [
+        {
+          "describe": "看下面的纸片，把剪下来的图形圈出来？",
+          "option": 3,
+          "answerIndex": [
+            2
+          ]
+        },
         {
           "describe": "看下面的纸片，把剪下来的图形圈出来？",
           "option": 3,
