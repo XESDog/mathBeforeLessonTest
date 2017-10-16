@@ -22,7 +22,7 @@ export default {
         } ,
         username:'刘昭廷',
         score:'100',
-      
+
         //这个是雷达图
         point_arry:[
           [0,100],

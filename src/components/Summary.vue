@@ -1,7 +1,9 @@
 <template>
        <swiper :options="swiperOption"  ref="mySwiper" style="height:10.8rem;">
+
              <!-- 这部分放你要渲染的那些内容 -->
              <swiper-slide class="scene1"  >
+                   <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/img/pinggu_band1.jpg"/>
                      <div class="areabar">
                      <PercentBar v-for="(item,key,index) in percentbarList" :key="index" :width='3.13'  :color='item.color' :height='0.33' :currentNum='item.currentNum' :score="item.score" :totalNum='100' style="margin-bottom:0.32rem"/>
                    </div>
@@ -12,6 +14,7 @@
                    <Arrows :posx="0"/>
              </swiper-slide>
              <swiper-slide class="scene2">
+                  <img style="position:absolute;opacity:0.5;left:0;top:0;width:100%;height:auto;" src="static/img/pinggu_band2.jpg"/>
                  <RadarGraphic   :point_Array="point_arry"/>
                  <Arrows :posx="-4.6" />
 
@@ -24,6 +27,7 @@
                   <div class='button1'></div>
              </swiper-slide>
              <swiper-slide class="scene3">
+                  <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/img/pinggu_band3.jpg"/>
                <div class="lessonTestLeft">
                  <div v-for="(item,index) in leftUlList" :key="index" class="ullist">
                    <div class="times">{{item.times}}</div>
@@ -217,22 +221,7 @@ $con_txsize:0.4rem;//恭喜面板字体
 position: relative;
 height:10.8rem;
 }
-.scene1{
-  background-image: url(../assets/pinggu_band1.jpg);
-  background-size: 100% 100%;
-}
-.scene2{
-  position: relative;
 
-  background-image: url(../assets/pinggu_band2.jpg);
-  background-size: 100% 100%;
-}
-.scene3{
-  position: relative;
-  background-image: url(../assets/pinggu_band3.jpg);
-  background-size: 100% 100%;
-
-}
 .gap{
   height:0.32rem;
 }
