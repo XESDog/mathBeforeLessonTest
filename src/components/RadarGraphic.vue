@@ -3,38 +3,12 @@
 
     <svg ref="mysvg"  viewBox="0,0,1920,1080" width="100%" height="100%"  version="1.1"
   xmlns="http://www.w3.org/2000/svg">
-      <g>
+      <!-- <g>
 
         <polygon  :points="getgraphics"
         style="fill:rgb(249,215,170);
         stroke:#000000;stroke-width:0"/>
-      </g>
-
-      <g>
-        <polygon :points="texturegraphicsA"
-        style="fill:rgb(255,231,195);
-        stroke:#000000;stroke-width:0"/>
-      </g>
-
-      <g>
-        <polygon :points="texturegraphicsB"
-        style="fill:rgb(249,215,170);
-        stroke:#000000;stroke-width:0"/>
-      </g>
-
-      <g>
-        <polygon :points="texturegraphicsC"
-        style="fill:rgb(255,231,195);
-        stroke:#000000;stroke-width:0"/>
-      </g>
-
-      <g>
-        <polygon :points="texturegraphicsD"
-        style="fill:rgb(249,215,170);
-        stroke:#000000;stroke-width:0"/>
-      </g>
-
-
+      </g> -->
 
       <g>
         <polygon ref="innerGraphic" :points="innerGetgraphics"
@@ -43,8 +17,7 @@
       </g>
       <circle v-for="(item,index) in circlelist" :key="index" :cx="item.cx" :cy="item.cy" r="3"
        fill="#18a9ff"/>
-       <text  v-for="(item,index) in svgText" :x="item.x" :y="item.y"  fill="#9a592a" style="font-size:0.3rem;font-weight:bold;" v-html="item.text"></text>
-      <text  :x="gl_text_x" :y="gl_text_y"  fill="#9a592a" style="font-size:0.3rem;font-weight:bold;">能力</text>
+
   </svg>
 
 </template>
@@ -57,8 +30,8 @@
         default:function(){
 
           return{
-            x:635,
-            y:440
+            x:647,
+            y:448
           }
         }
       },
@@ -81,7 +54,7 @@
       },
       radiusInner:{
         type:Number,
-        default:165
+        default:175
       },
       //初始化百分比分数布局点数组
       point_Array:{
