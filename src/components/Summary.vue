@@ -5,10 +5,14 @@
                      <div class="areabar">
                      <PercentBar v-for="(item,key,index) in percentbarList" :key="index" :width='3.13'  :color='item.color' :height='0.33' :currentNum='item.currentNum' :score="item.score" :totalNum='100' style="margin-bottom:0.32rem"/>
                    </div>
+                   <div class="userinfoband">
+                      <div class='username'>{{username}}</div>
+                      <div class='score'>{{score}}分</div>
+                   </div>
                    <Arrows :posx="0"/>
              </swiper-slide>
              <swiper-slide class="scene2">
-                 <RadarGraphic  :point_Array="point_arry"/>
+                 <RadarGraphic   :point_Array="point_arry"/>
                  <Arrows :posx="-4.6" />
 
                   <!-- <Buttons src="" :x="(19.2/2)-1.21" :y="10.8*0.72"/> -->
@@ -54,6 +58,35 @@ $con_txsize:0.4rem;//恭喜面板字体
   width:3.13rem;
   height:4.37rem;
 }
+.userinfoband{
+  position: relative;
+  width:4.9rem;
+  height:6.8rem;
+  left:3.6rem;
+  top:2.7rem;
+  .username{
+    position: absolute;
+    text-align: center;
+    line-height: auto;
+    width:2rem;
+    top:4.66rem;
+    left:2rem;
+    color:white;
+    font-size: 0.4rem;
+  }
+  .score{
+    position: absolute;
+    text-align: center;
+    line-height: auto;
+    width:1.6rem;
+    top:5.56rem;
+    left:2rem;
+    color:white;
+    font-size: 0.44rem;
+
+  }
+};
+
 .congratulationList{
   position: absolute;
   top:2.2rem;
@@ -67,7 +100,6 @@ $con_txsize:0.4rem;//恭喜面板字体
    box-sizing: border-box;
    text-align: justify;
    line-height: 200%;
-
 }
 .lessonTestRight{
   position: absolute;
@@ -82,44 +114,34 @@ $con_txsize:0.4rem;//恭喜面板字体
   top:2.8rem;
   left:9.8rem;
   font-size: 0.2rem;
-
+  .ullist{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    height:0.37rem;
+    div{
+     display: flex;
+     position: relative;
+     justify-content:center;
+     align-items: center;
+     color:#9a592a;
+     height:0.36rem;
+     font-weight: bold;
+   }
+   .times{
+     width:1.06rem;
+   }
+  .lesson{
+    flex-grow: 1;
+  }
+  .respons{
+    width:1.75rem;
+  }
+  }
 }
-.lessonTestRight .ullist{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  position: relative;
-  height:0.37rem;
 
-
-
-}
-.lessonTestRight .ullist div{
-  display: flex;
-  position: relative;
-  justify-content:center;
-  align-items: center;
-  color:#9a592a;
-  height:0.36rem;
-  font-weight: bold;
-
-
-}
-.lessonTestRight .ullist div.times{
-  width:1.06rem;
-
-}
-.lessonTestRight .ullist div.lesson{
-  flex-grow: 1;
-
-
-}
-.lessonTestRight .ullist div.respons{
-  width:1.75rem;
-
-
-}
 .lessonTestLeft{
   position: absolute;
   display: flex;
@@ -132,42 +154,37 @@ $con_txsize:0.4rem;//恭喜面板字体
   top:0px;
   top:2.8rem;
   left:3.58rem;
-    font-size: 0.25rem;
+  font-size: 0.25rem;
+  .ullist{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    height:0.565rem;
+    div{
+      display: flex;
+      position: relative;
+      justify-content:center;
+      align-items: center;
+
+      color:#9a592a;
+      height:0.68rem;
+      font-weight: bold;
+    }
+    .times{
+      width:1.06rem;
+    }
+    .lesson{
+      flex-grow: 1;
+    }
+    .respons{
+      width:1.81rem;
+    }
+  }
 
 }
-.lessonTestLeft .ullist{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  position: relative;
-  height:0.565rem;
 
-
-}
-.lessonTestLeft .ullist div{
-  display: flex;
-  position: relative;
-  justify-content:center;
-  align-items: center;
-
-  color:#9a592a;
-  height:0.68rem;
-  font-weight: bold;
-
-
-}
-.lessonTestLeft .ullist div.times{
-  width:1.06rem;
-}
-.lessonTestLeft .ullist div.lesson{
-  flex-grow: 1;
-
-
-}
-.lessonTestLeft .ullist div.respons{
-  width:1.81rem;
-}
 .button1{
   position: absolute;
   top:0px;
@@ -195,7 +212,6 @@ $con_txsize:0.4rem;//恭喜面板字体
   right:0px;
   top:7.2rem;
   cursor: pointer;
-
 }
 .scene1,.scene2,.scene3{
 position: relative;
