@@ -41,14 +41,29 @@
           "answerIndex": [
             1
           ]
+        },
+        {
+          "describe": "",
+          "option": 3,
+          "answerIndex": [
+            1
+          ]
         }
       ]
+
     },
     {
       "name": "推理能力",
       "questions": [
         {
           "describe": "这里是第一道题,以下哪个是'b'",
+          "option": 3,
+          "answerIndex": [
+            1
+          ]
+        },
+        {
+          "describe": "",
           "option": 3,
           "answerIndex": [
             1
@@ -61,6 +76,13 @@
       "questions": [
         {
           "describe": "这里是第一道题,以下哪个是'b'",
+          "option": 3,
+          "answerIndex": [
+            1
+          ]
+        },
+        {
+          "describe": "",
           "option": 3,
           "answerIndex": [
             1
@@ -88,6 +110,13 @@
           "option": 3,
           "answerIndex": [
             1
+          ]
+        },
+        {
+          "describe": "时钟",
+          "option": 3,
+          "answerIndex": [
+            2
           ]
         }
       ]
