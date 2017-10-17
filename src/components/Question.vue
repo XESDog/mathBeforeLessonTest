@@ -3,7 +3,13 @@
     <!--背景-->
     <img class="full" src="../assets/questionBg.jpg">
     <!--题目-->
-    <div class="describe">{{questionContent.describe}}</div>
+    <div class="describe"
+         :style="{
+            'font-size':questionContent.describe.length>30?'0.32rem':'0.4rem'
+          }"
+    >
+      {{questionContent.describe}}
+    </div>
     <!--答题时间-->
     <div class="time">{{formattedTime}}</div>
     <!--题干-->
@@ -143,7 +149,7 @@
     color: white;
     text-align: center;
     position: absolute;
-    left: 3rem;
+    left: 2.6rem;
     top: 0.25rem;
   }
 

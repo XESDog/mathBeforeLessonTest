@@ -10,21 +10,21 @@
       "name": "运算能力",
       "questions": [
         {
-          "describe": "算一算，帮小青蛙找到对应的荷叶，哪个荷叶上小青蛙的个数最多？",
+          "describe": "算一算，哪个计算结果重复的次数最多?",
           "option": 3,
           "answerIndex": [
             2
           ]
         },
         {
-          "describe": "",
+          "describe": "算一算，小桃子代表的数字应该是多少呢?",
           "option": 3,
           "answerIndex": [
             1
           ]
         },
         {
-          "describe": "",
+          "describe": "算一算，现在停车场里有多少辆小汽车?",
           "option": 3,
           "answerIndex": [
             1
@@ -36,14 +36,14 @@
       "name": "专注力",
       "questions": [
         {
-          "describe": "",
+          "describe": "下面四张图是青蛙的成长过程，请问它成长的第一步是？",
           "option": 3,
           "answerIndex": [
-            1
+            2
           ]
         },
         {
-          "describe": "",
+          "describe": "方阵中每一行每一列都有1,2,3,4这四个数字，请问空缺位置的所有数字的和是多少？",
           "option": 3,
           "answerIndex": [
             1
@@ -56,17 +56,17 @@
       "name": "推理能力",
       "questions": [
         {
-          "describe": "这里是第一道题,以下哪个是'b'",
+          "describe": "小动物们正在玩跷跷板，请问谁是最轻的呢？",
           "option": 3,
           "answerIndex": [
-            1
+            2
           ]
         },
         {
-          "describe": "这里是第一道题,以下哪个是'b'",
+          "describe": "小动物们在玩跷跷板，请问1只小狗和几只小鸡一样重？",
           "option": 3,
           "answerIndex": [
-            1
+            2
           ]
         }
       ]
@@ -75,10 +75,10 @@
       "name": "观察能力",
       "questions": [
         {
-          "describe": "这里是第一道题,以下哪个是'b'",
+          "describe": "有一条小鱼，它每过一年都会多吐一些泡泡，请问2015年它可以吐多少个泡泡？",
           "option": 3,
           "answerIndex": [
-            1
+            0
           ]
         }
       ]
@@ -87,14 +87,14 @@
       "name": "动手能力",
       "questions": [
         {
-          "describe": "看下面的纸片，把剪下来的图形圈出来？",
+          "describe": "看下面的纸片，剪下来的图形应该是什么样子的呢？",
           "option": 3,
           "answerIndex": [
             2
           ]
         },
         {
-          "describe": "看下面的纸片，把剪下来的图形圈出来？",
+          "describe": "小方正在剪绳子，请问她一刀剪下去，绳子会分成多少段？",
           "option": 3,
           "answerIndex": [
             2
@@ -106,17 +106,17 @@
       "name": "时间管理能力",
       "questions": [
         {
-          "describe": "下图是（     ）年（     ）月的日历，这个月有（     ）天",
+          "describe": "下图是2017年1月的日历，这个月有多少天？",
           "option": 3,
           "answerIndex": [
             1
           ]
         },
         {
-          "describe": "时钟",
+          "describe": "小朋友，下面的闹钟表显示的是几点钟呢？",
           "option": 3,
           "answerIndex": [
-            2
+            0
           ]
         }
       ]

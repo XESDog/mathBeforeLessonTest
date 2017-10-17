@@ -7,13 +7,24 @@
 
 <script>
   export default {
-    name: 'app'
+    name: 'app',
+    mounted() {
+      $(function () {
+        // 自定义分享信息
+        var shareConfig = {
+          title: '入学测测试',
+          desc: '这里是我入学测的点击，不用管它',
+          img: "http://zt.xueersi.com/mzhejiangy1/images/share.jpg",
+        }
+        wxShare(shareConfig);
+      })
+    }
   }
 </script>
 
 <style lang="scss">
-  $globalWidth:19.2rem;
-  $globalHeight:10.8rem;
+  $globalWidth: 19.2rem;
+  $globalHeight: 10.8rem;
   html {
     height: 100%;
   }
@@ -23,10 +34,10 @@
     overflow: hidden;
     background-size: cover;
     margin: 0px;
-    background:black;
+    background: black;
 
     user-select: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   #app {
@@ -35,7 +46,7 @@
     width: $globalWidth;
     height: $globalHeight;
     overflow: hidden;
-    top:50%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
