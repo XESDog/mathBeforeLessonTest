@@ -24,6 +24,9 @@
     background-size: cover;
     margin: 0px;
     background:black;
+
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
   #app {
