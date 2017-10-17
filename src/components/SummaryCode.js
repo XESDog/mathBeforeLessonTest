@@ -24,6 +24,8 @@ export default {
         score:'100',
         greatComments_str:"",
         badComments_str:"",
+        commentUpper:true,
+        commentDown:true,
 
         //这个是雷达图
         point_arry:[
@@ -148,9 +150,9 @@ export default {
       self.point_arry =[];
       for(let i=0;i<this.getLevel.length;i++){
         let _rank = this.getLevel[i].rank;
-        let _rate = Number(this.getLevel[i].rate).toFixed(4)*100;
+        let _rate = Number(this.getLevel[i].rate).toFixed(2)*100;
         rankarr.push({
-          currentNum:_rate,
+          currentNum:(_rate==0) ? 10 :_rate,
           score:_rank,
           color:color_arr[i]
         });
@@ -159,11 +161,17 @@ export default {
         }else{
           _greatComments_arr.push('<span style="color:'+color_arr[i]+'">'+comments[i]+'</span>');
         }
-        radararr.push([_rate,100])
+        radararr.push([rankarr[i].currentNum,100]);
+      }
+      if(_badComments_arr.length<1){
+        self.commentDown = false;
+      }
+      if(_greatComments_arr.length<1){
+        self.commentUpper = false;
       }
       self.badComments_str = _badComments_arr.join('，');
       self.greatComments_str =   _greatComments_arr.join('，');
       self.percentbarList = rankarr;
-      self.point_arry=[radararr[3],radararr[2],radararr[1],radararr[0],radararr[5],radararr[4]]
+      self.point_arry=[radararr[3],radararr[2],radararr[1],radararr[0],radararr[5],radararr[4]];
     }
 }

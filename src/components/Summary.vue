@@ -18,11 +18,10 @@
 
                  <Arrows :posx="-4.6" />
 
-                  <!-- <Buttons src="" :x="(19.2/2)-1.21" :y="10.8*0.72"/> -->
                    <div class="congratulationList">
                      恭喜宝贝，顺利完成本次测评。<br/>宝贝的<br/>
-                     <span v-html="greatComments_str"></span>很强，要继续保持哦！<br/><br/>
-                    <span v-html="badComments_str"></span>有待提高，要重视培养喽~~<br/><br/>
+                     <span v-html="greatComments_str"></span><span v-if="commentUpper">很强，要继续保持哦！</span><br v-if="commentUpper"/><br/>
+                     <span v-html="badComments_str"></span><span v-if="commentDown">有待提高，要重视培养喽~~</span><br v-if="commentDown"/><br/>
                       点击下方“分享战绩”，邀请小伙伴一起参加测评吧~
                    </div>
                   <div class='button1'></div>
