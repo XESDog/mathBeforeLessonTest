@@ -24,9 +24,11 @@
     background-size: cover;
     margin: 0px;
     background:black;
-
-    user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout:none;
+    -webkit-touch-action-delay:none;
+    -webkit-user-select:none;
+
   }
 
   #app {
