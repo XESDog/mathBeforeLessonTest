@@ -20,8 +20,9 @@
 
                   <!-- <Buttons src="" :x="(19.2/2)-1.21" :y="10.8*0.72"/> -->
                    <div class="congratulationList">
-                     恭喜宝贝，顺利完成本次测评。<br/>宝贝的推理能力、观察能力、动手能力很强，要继续保持哦！<br/>
-                      运算能力、专注力、时间管理能力有待提高，要重视培养喽~~<br/>
+                     恭喜宝贝，顺利完成本次测评。<br/>宝贝的<br/>
+                     <span v-html="greatComments_str"></span>很强，要继续保持哦！<br/><br/>
+                    <span v-html="badComments_str"></span>有待提高，要重视培养喽~~<br/><br/>
                       点击下方“分享战绩”，邀请小伙伴一起参加测评吧~
                    </div>
                   <div class='button1'></div>
@@ -92,30 +93,26 @@
 
     }
   }
-
-  
-
   .congratulationList {
     position: absolute;
-    top: 2.2rem;
+    top: 2rem;
     left: 9.88rem;
     width: 5.7rem;
     height: 2rem;
     word-break: break-all;
-    font-size: 0.31rem;
+    font-size: 0.3rem;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
     box-sizing: border-box;
     text-align: justify;
-    line-height: 200%;
+    line-height: 0.48rem;
+    color:#9a592a;
   }
-
   .lessonTestRight {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
     width: 5.7rem;
     height: auto;
     left: 0px;
@@ -150,13 +147,11 @@
       }
     }
   }
-
   .lessonTestLeft {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
     width: 5.7rem;
     height: auto;
     left: 0px;
@@ -191,11 +186,7 @@
         width: 1.81rem;
       }
     }
-
   }
-
-
-
 .button1{
   position: absolute;
   top:0px;
@@ -228,7 +219,6 @@
 position: relative;
 height:10.8rem;
 }
-
 .gap{
   height:0.32rem;
 }

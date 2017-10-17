@@ -22,6 +22,8 @@ export default {
         } ,
         username:'刘昭廷',
         score:'100',
+        greatComments_str:"",
+        badComments_str:"",
 
         //这个是雷达图
         point_arry:[
@@ -123,7 +125,6 @@ export default {
           }
         ],
         percentbarList:[
-
         ]
       }
     },
@@ -137,27 +138,32 @@ export default {
     },
     components:{swiper,swiperSlide,PercentBar,RadarGraphic,Arrows,Buttons},
     mounted:function(){
-
+      let _badComments_arr=[];
+      let _greatComments_arr=[]
+      let comments = ['运算能力','专注力','推理能力','观察能力','动手能力','时间管理'];
       const self = this;
       let color_arr = ["#5ad9fb","#f97454","#fcad2d","#aadc4b","#ff83ce","#a573f2"];
-
       let rankarr = [];
       let radararr = [];
       self.point_arry =[];
       for(let i=0;i<this.getLevel.length;i++){
         let _rank = this.getLevel[i].rank;
-        let _rate = Number(this.getLevel[i].rate).toFixed(2)*100;
+        let _rate = Number(this.getLevel[i].rate).toFixed(4)*100;
         rankarr.push({
           currentNum:_rate,
           score:_rank,
           color:color_arr[i]
         });
-        console.log('分数:'+this.getLevel[i].rank)
+        if(_rate<85){
+          _badComments_arr.push('<span style="color:'+color_arr[i]+'">'+comments[i]+'</span>');
+        }else{
+          _greatComments_arr.push('<span style="color:'+color_arr[i]+'">'+comments[i]+'</span>');
+        }
         radararr.push([_rate,100])
       }
+      self.badComments_str = _badComments_arr.join('，');
+      self.greatComments_str =   _greatComments_arr.join('，');
       self.percentbarList = rankarr;
-      self.point_arry = radararr;
-      console.log(this.getLevel)
-      //  console.log('getAllLevelRank'+this.$store.getters.getAllLevelRank)
+      self.point_arry=[radararr[3],radararr[2],radararr[1],radararr[0],radararr[5],radararr[4]]
     }
 }
