@@ -23,16 +23,31 @@
                :value="index-1"
                v-model="userAnswer"
         >
+
+
         <label :for="'option'+index">
-          <img :src="getLabelImgPath(index-1)">
+
+          <transition
+            v-on:enter="enter"
+            :css="false"
+
+          >
+            <img v-if="isSelected(index-1)"
+                 :src="getLabelImgSelectedPath(index-1)"
+            >
+          </transition>
+          <img v-if="!isSelected(index-1)" :src="getLabelImgNormalPath(index-1)">
         </label>
+
       </div>
     </div>
+
     <button
       class="nextBtn"
       v-show="!complete"
       @click="submit">
     </button>
+
     <button v-show="complete"
             class="nextBtn"
             @click="submit"

@@ -1,8 +1,10 @@
 import {currentQuestionContent} from "../store/getters";
 
-const _ = require('lodash');
+
 const dateFormat = require('dateformat');
 const {mapState, mapGetters} = require('vuex');
+const Velocity = require('velocity-animate')
+
 let time;
 
 export default {
@@ -20,7 +22,7 @@ export default {
         return dateFormat(this.passedTime * 1000, 'MM:ss');
       }
     },
-    ...mapState(['lastLevelDescribe','nextLevelDescribe']),
+    ...mapState(['lastLevelDescribe', 'nextLevelDescribe']),
     ...mapGetters({
       complete: 'complete',
       path: 'staticPath',
@@ -28,7 +30,7 @@ export default {
       currentLevelLastQuestion: 'currentLevelLastQuestion',
       rank: 'currentLevelRank',
       questionContent: 'currentQuestionContent',
-      currentLevelName:'currentLevelName'
+      currentLevelName: 'currentLevelName'
     })
   },
   methods: {
@@ -38,6 +40,12 @@ export default {
       } else {
         return this.path + 'option_' + index + '.png';
       }
+    },
+    getLabelImgNormalPath(index) {
+      return this.path + 'option_' + index + '.png';
+    },
+    getLabelImgSelectedPath(index) {
+      return this.path + 'selected_' + index + '.png';
     },
     isSelected(index) {
       return this.userAnswer === index;
@@ -62,6 +70,9 @@ export default {
       this.$store.dispatch('toNext')
 
     },
+    enter(el) {
+      Velocity(el, {scale: 1.1}, {duration: 2000,easing:'spring'})
+    }
   },
   mounted() {
     time = setInterval(() => {

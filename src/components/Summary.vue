@@ -1,55 +1,52 @@
 <template>
-  <swiper :options="swiperOption" ref="mySwiper" style="height:10.8rem;">
-    <!-- 这部分放你要渲染的那些内容 -->
-    <swiper-slide class="scene1">
-      <img src="static/pinggu_band1.jpg" style="position: absolute;left: 0;top:0;width: 100%;">
-      <div class="areabar">
-        <PercentBar v-for="(item,key,index) in percentbarList" :key="index" :width='3.13' :color='item.color'
-                    :height='0.33' :currentNum='item.currentNum' :score="item.score" :totalNum='100'
-                    style="margin-bottom:0.32rem"/>
+       <swiper :options="swiperOption"  ref="mySwiper" style="height:10.8rem;">
 
-      </div>
-      <div class="userinfoband">
-        <div class='username'>{{username}}</div>
-        <div class='score'>{{score}}分</div>
-      </div>
+             <!-- 这部分放你要渲染的那些内容 -->
+             <swiper-slide class="scene1"  >
+                   <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg1.jpg"/>
+                     <div class="areabar">
+                     <PercentBar v-for="(item,key,index) in percentbarList" :key="index" :width='3.13'  :color='item.color' :height='0.33' :currentNum='item.currentNum' :score="item.score" :totalNum='100' style="margin-bottom:0.32rem"/>
+                   </div>
+                   <div class="userinfoband">
+                      <div class='username'>{{username}}</div>
+                      <div class='score'>{{score}}分</div>
+                   </div>
+                   <Arrows :posx="0"/>
+             </swiper-slide>
+             <swiper-slide class="scene2">
+                  <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg2.jpg"/>
 
-      <Arrows :posx="0"/>
+                 <Arrows :posx="-4.6" />
 
-    </swiper-slide>
-    <swiper-slide class="scene2">
-      <img src="static/pinggu_band2.jpg" style="position: absolute;left: 0;top:0;width: 100%;">
-      <RadarGraphic :point_Array="point_arry"/>
-      <Arrows :posx="-4.6"/>
+                  <!-- <Buttons src="" :x="(19.2/2)-1.21" :y="10.8*0.72"/> -->
+                   <div class="congratulationList">
+                     恭喜宝贝，顺利完成本次测评。<br/>宝贝的推理能力、观察能力、动手能力很强，要继续保持哦！<br/>
+                      运算能力、专注力、时间管理能力有待提高，要重视培养喽~~<br/>
+                      点击下方“分享战绩”，邀请小伙伴一起参加测评吧~
+                   </div>
+                  <div class='button1'></div>
+                     <RadarGraphic   :point_Array="point_arry"/>
+             </swiper-slide>
+             <swiper-slide class="scene3">
+                  <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg3.jpg"/>
+               <div class="lessonTestLeft">
+                 <div v-for="(item,index) in leftUlList" :key="index" class="ullist">
+                   <div class="times">{{item.times}}</div>
+                   <div class="lesson">{{item.lesson}}</div>
+                   <div class='respons'>{{item.respons}}</div>
+                 </div>
+               </div>
 
-      <!-- <Buttons src="" :x="(19.2/2)-1.21" :y="10.8*0.72"/> -->
-      <div class="congratulationList">
-        恭喜宝贝，顺利完成本次测评。<br/>宝贝的推理能力、观察能力、动手能力很强，要继续保持哦！<br/>
-        运算能力、专注力、时间管理能力有待提高，要重视培养喽~~<br/>
-        点击下方“分享战绩”，邀请小伙伴一起参加测评吧~
-      </div>
-      <div class='button1'></div>
-    </swiper-slide>
-    <swiper-slide class="scene3">
-      <img src="static/pinggu_band3.jpg" style="position: absolute;left: 0;top:0;width: 100%;">
-      <div class="lessonTestLeft">
-        <div v-for="(item,index) in leftUlList" :key="index" class="ullist">
-          <div class="times">{{item.times}}</div>
-          <div class="lesson">{{item.lesson}}</div>
-          <div class='respons'>{{item.respons}}</div>
-        </div>
-      </div>
-
-      <div class="lessonTestRight">
-        <div v-for="(item,index) in rightUlList" :key="index" class="ullist">
-          <div class="times">{{item.times}}</div>
-          <div class="lesson">{{item.lesson}}</div>
-          <div class='respons'>{{item.respons}}</div>
-        </div>
-      </div>
-      <div class='button2'></div>
-    </swiper-slide>
-  </swiper>
+               <div class="lessonTestRight">
+                 <div v-for="(item,index) in rightUlList" :key="index" class="ullist">
+                   <div class="times">{{item.times}}</div>
+                   <div class="lesson">{{item.lesson}}</div>
+                   <div class='respons'>{{item.respons}}</div>
+                 </div>
+               </div>
+              <div class='button2'></div>
+             </swiper-slide>
+         </swiper>
 
 </template>
 
@@ -96,7 +93,7 @@
     }
   }
 
-  ;
+  
 
   .congratulationList {
     position: absolute;
@@ -197,42 +194,42 @@
 
   }
 
-  .button1 {
-    position: absolute;
-    top: 0px;
-    left: 10px;
-    width: 2.8rem;
-    height: 1.04rem;
-    background: url(../assets/sharebtn.png) no-repeat;
-    background-size: 100% 100%;
-    margin: 0 auto;
-    left: 0px;
-    right: 0px;
-    top: 7.8rem;
-    cursor: pointer;
-  }
 
-  .button2 {
-    position: absolute;
-    top: 0px;
-    left: 10px;
-    width: 2.8rem;
-    height: 1.04rem;
-    background: url(../assets/testbtn.png) no-repeat;
-    background-size: 100% 100%;
-    margin: 0 auto;
-    left: 0px;
-    right: 0px;
-    top: 7.2rem;
-    cursor: pointer;
-  }
 
-  .scene1, .scene2, .scene3 {
-    position: relative;
-    height: 10.8rem;
-  }
+.button1{
+  position: absolute;
+  top:0px;
+  left:10px;
+  width:2.8rem;
+  height:1.04rem;
+  background:url(../assets/sharebtn.png) no-repeat;
+  background-size: 100% 100%;
+  margin:0 auto;
+  left:0px;
+  right:0px;
+  top:7.8rem;
+  cursor: pointer;
+}
+.button2{
+  position: absolute;
+  top:0px;
+  left:10px;
+  width:2.8rem;
+  height:1.04rem;
+  background:url(../assets/testbtn.png) no-repeat;
+  background-size: 100% 100%;
+  margin:0 auto;
+  left:0px;
+  right:0px;
+  top:7.2rem;
+  cursor: pointer;
+}
+.scene1,.scene2,.scene3{
+position: relative;
+height:10.8rem;
+}
 
-  .gap {
-    height: 0.32rem;
-  }
+.gap{
+  height:0.32rem;
+}
 </style>
