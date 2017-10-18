@@ -15,13 +15,13 @@
              </swiper-slide>
              <swiper-slide class="scene2">
                   <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg2.jpg"/>
-
                  <Arrows :posx="-4.6" />
-
                    <div class="congratulationList">
                      恭喜宝贝，顺利完成本次测评。<br/>宝贝的<br/>
-                     <span v-html="greatComments_str"></span><span v-if="commentUpper">很强，要继续保持哦！</span><br v-if="commentUpper"/><br/>
-                     <span v-html="badComments_str"></span><span v-if="commentDown">有待提高，要重视培养喽~~</span><br v-if="commentDown"/><br/>
+                     <span v-html="greatComments_str"></span><span v-if="commentUpper">很强，要继续保持哦！</span>
+                        <div  style="height:0.15rem" v-if="commentUpper"></div>
+                     <span v-html="badComments_str"></span><span v-if="commentDown">有待提高，要重视培养喽~~</span>
+                         <div style="height:0.15rem;" v-if="commentDown"> </div>
                       点击下方“分享战绩”，邀请小伙伴一起参加测评吧~
                    </div>
                   <div class='button1'></div>
@@ -99,10 +99,10 @@
     height: 2rem;
     word-break: break-all;
     font-size: 0.3rem;
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
     box-sizing: border-box;
-    text-align: justify;
+    text-align:justify;
     line-height: 0.48rem;
     color:#9a592a;
   }
@@ -111,6 +111,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    flex-wrap: nowrap;
     width: 5.7rem;
     height: auto;
     left: 0;
@@ -123,25 +124,27 @@
       flex-direction: row;
       justify-content: center;
       align-items: flex-start;
+      flex-wrap: nowrap;
       position: relative;
       height: 0.37rem;
       div {
-        display: flex;
         position: relative;
-        justify-content: center;
-        align-items: center;
         color: #9a592a;
-        height: 0.36rem;
+        height: 0.35rem;
         font-weight: bold;
+        line-height: 0.4rem;
       }
       .times {
         width: 1.06rem;
+        overflow: hidden;
       }
       .lesson {
-        flex-grow: 1;
+        width:2.85rem;
+        overflow: hidden;
       }
       .respons {
         width: 1.75rem;
+        overflow: hidden;
       }
     }
   }
@@ -156,32 +159,34 @@
     top: 0;
     top: 2.8rem;
     left: 3.58rem;
-    font-size: 0.25rem;
+    font-size:   0.25rem;
     .ullist {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: flex-start;
       position: relative;
-      height: 0.565rem;
-      div {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
 
+      div {
+        position: relative;
         color: #9a592a;
         height: 0.68rem;
         font-weight: bold;
+        height:0.57rem;
+        border:0.4rem;
+        line-height: 0.57rem;
       }
       .times {
         width: 1.06rem;
+        overflow: hidden;
       }
       .lesson {
-        flex-grow: 1;
+        width:2.87rem;
+        overflow: hidden;
       }
       .respons {
         width: 1.81rem;
+        overflow: hidden;
       }
     }
   }

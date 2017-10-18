@@ -13,7 +13,7 @@
         style="fill:rgba(24,222,255,0.5);
         stroke:#18a9ff;stroke-width:1"/>
       </g>
-      <circle v-for="(item,index) in circlelist" :key="index" :cx="item.cx" :cy="item.cy" r="3"
+      <circle v-for="(item,index) in circlelist" :key="index" :cx="item.cx" :cy="item.cy" :r="item.cr"
        fill="#18a9ff"/>
 
   </svg>
@@ -52,7 +52,7 @@
       point_Array:{
         type:Array,
         default:function(){
-          return [[10,200],[10,200],[10,200],[10,200],[10,200],[10,200]]
+          return [[0,1],[0,1],[0,1],[0,1],[0,1],[0,1]]
         }
       },
 
@@ -65,7 +65,8 @@
         circle1_y:100,
         circlelist:[{
           cx:0,
-          cy:0
+          cy:0,
+          cr:0
         }],
         svgText:[{
           text:'e444'
@@ -77,7 +78,7 @@
       innerGetgraphics(){
         const self = this;
 
-        let ln = this.radiusInner
+        let ln = this.radiusInner;
         let center_pt = {
           x:this.pointCenter.x,
           y:this.pointCenter.y
@@ -100,10 +101,10 @@
               x:center_pt.x+Math.sin(_bianAngle*Math.PI/180)*_bianchang,
               y:center_pt.y+Math.cos(_bianAngle*Math.PI/180)*_bianchang
             }
-
             self.circlelist.push({
               cx:pt.x,
-              cy:pt.y
+              cy:pt.y,
+              cr:(_bianchang==0) ? 0 :3
             })
             let format = pt.x+','+pt.y
             graphics_arr.push(format);
