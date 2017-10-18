@@ -33,10 +33,8 @@
           top:self.y+'rem'
         }
       },
-      getSrc:function(){
-        console.log(this.$store.getters.assetsPath)
-        return this.$store.getters.assetsPath
-
+      getSrc(){
+        return '../assets/'+this.src
       }
     },
     data:function(){

@@ -15,13 +15,13 @@
              </swiper-slide>
              <swiper-slide class="scene2">
                   <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg2.jpg"/>
-
                  <Arrows :posx="-4.6" />
-
-                  <!-- <Buttons src="" :x="(19.2/2)-1.21" :y="10.8*0.72"/> -->
                    <div class="congratulationList">
-                     恭喜宝贝，顺利完成本次测评。<br/>宝贝的推理能力、观察能力、动手能力很强，要继续保持哦！<br/>
-                      运算能力、专注力、时间管理能力有待提高，要重视培养喽~~<br/>
+                     恭喜宝贝，顺利完成本次测评。<br/>宝贝的<br/>
+                     <span v-html="greatComments_str"></span><span v-if="commentUpper">很强，要继续保持哦！</span>
+                        <div  style="height:0.15rem" v-if="commentUpper"></div>
+                     <span v-html="badComments_str"></span><span v-if="commentDown">有待提高，要重视培养喽~~</span>
+                         <div style="height:0.15rem;" v-if="commentDown"> </div>
                       点击下方“分享战绩”，邀请小伙伴一起参加测评吧~
                    </div>
                   <div class='button1'></div>
@@ -89,37 +89,33 @@
       left: 2rem;
       color: white;
       font-size: 0.44rem;
-
     }
   }
-
-  
-
   .congratulationList {
     position: absolute;
-    top: 2.2rem;
+    top: 2rem;
     left: 9.88rem;
     width: 5.7rem;
     height: 2rem;
     word-break: break-all;
-    font-size: 0.31rem;
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
+    font-size: 0.3rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
     box-sizing: border-box;
-    text-align: justify;
-    line-height: 200%;
+    text-align:justify;
+    line-height: 0.48rem;
+    color:#9a592a;
   }
-
   .lessonTestRight {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
+    flex-wrap: nowrap;
     width: 5.7rem;
     height: auto;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     top: 2.8rem;
     left: 9.8rem;
     font-size: 0.2rem;
@@ -128,99 +124,93 @@
       flex-direction: row;
       justify-content: center;
       align-items: flex-start;
+      flex-wrap: nowrap;
       position: relative;
       height: 0.37rem;
       div {
-        display: flex;
         position: relative;
-        justify-content: center;
-        align-items: center;
         color: #9a592a;
-        height: 0.36rem;
+        height: 0.35rem;
         font-weight: bold;
+        line-height: 0.4rem;
       }
       .times {
         width: 1.06rem;
+        overflow: hidden;
       }
       .lesson {
-        flex-grow: 1;
+        width:2.85rem;
+        overflow: hidden;
       }
       .respons {
         width: 1.75rem;
+        overflow: hidden;
       }
     }
   }
-
   .lessonTestLeft {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
     width: 5.7rem;
     height: auto;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     top: 2.8rem;
     left: 3.58rem;
-    font-size: 0.25rem;
+    font-size:   0.25rem;
     .ullist {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: flex-start;
       position: relative;
-      height: 0.565rem;
-      div {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
 
+      div {
+        position: relative;
         color: #9a592a;
         height: 0.68rem;
         font-weight: bold;
+        height:0.57rem;
+        border:0.4rem;
+        line-height: 0.57rem;
       }
       .times {
         width: 1.06rem;
+        overflow: hidden;
       }
       .lesson {
-        flex-grow: 1;
+        width:2.87rem;
+        overflow: hidden;
       }
       .respons {
         width: 1.81rem;
+        overflow: hidden;
       }
     }
-
   }
-
-
-
 .button1{
   position: absolute;
-  top:0px;
-  left:10px;
   width:2.8rem;
   height:1.04rem;
   background:url(../assets/sharebtn.png) no-repeat;
   background-size: 100% 100%;
   margin:0 auto;
-  left:0px;
-  right:0px;
+  left:0;
+  right:0;
   top:7.8rem;
   cursor: pointer;
 }
 .button2{
   position: absolute;
-  top:0px;
-  left:10px;
   width:2.8rem;
   height:1.04rem;
   background:url(../assets/testbtn.png) no-repeat;
   background-size: 100% 100%;
   margin:0 auto;
-  left:0px;
-  right:0px;
+  left:0;
+  right:0;
   top:7.2rem;
   cursor: pointer;
 }
@@ -228,7 +218,6 @@
 position: relative;
 height:10.8rem;
 }
-
 .gap{
   height:0.32rem;
 }

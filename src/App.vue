@@ -28,6 +28,7 @@
     -webkit-touch-callout:none;
     -webkit-touch-action-delay:none;
     -webkit-user-select:none;
+    -webkit-text-size-adjust:none;
 
   }
 

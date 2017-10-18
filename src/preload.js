@@ -8,10 +8,10 @@
             var aspectRatio = window.clientWidth/window.clientHeight;
             if(aspectRatio > 1920 / 1080){
                 docEl.style.fontSize = 100 * (window.clientHeight / 1080) + 'px';
-                window.base = 100 * (window.clientHeight / 1080); 
+                window.base = 100 * (window.clientHeight / 1080);
             }else{
                 docEl.style.fontSize = 100 * (window.clientWidth / 1920) + 'px';
-                window.base = 100 * (window.clientWidth / 1920);  
+                window.base = 100 * (window.clientWidth / 1920);
                 // 判断是否为移动设备，提示旋转屏幕
             }
             // alert(navigator.userAgent)
