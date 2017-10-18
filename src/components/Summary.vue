@@ -89,7 +89,6 @@
       left: 2rem;
       color: white;
       font-size: 0.44rem;
-
     }
   }
   .congratulationList {
@@ -114,8 +113,8 @@
     justify-content: flex-start;
     width: 5.7rem;
     height: auto;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     top: 2.8rem;
     left: 9.8rem;
     font-size: 0.2rem;
@@ -153,8 +152,8 @@
     justify-content: flex-start;
     width: 5.7rem;
     height: auto;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     top: 2.8rem;
     left: 3.58rem;
     font-size: 0.25rem;
@@ -188,29 +187,25 @@
   }
 .button1{
   position: absolute;
-  top:0px;
-  left:10px;
   width:2.8rem;
   height:1.04rem;
   background:url(../assets/sharebtn.png) no-repeat;
   background-size: 100% 100%;
   margin:0 auto;
-  left:0px;
-  right:0px;
+  left:0;
+  right:0;
   top:7.8rem;
   cursor: pointer;
 }
 .button2{
   position: absolute;
-  top:0px;
-  left:10px;
   width:2.8rem;
   height:1.04rem;
   background:url(../assets/testbtn.png) no-repeat;
   background-size: 100% 100%;
   margin:0 auto;
-  left:0px;
-  right:0px;
+  left:0;
+  right:0;
   top:7.2rem;
   cursor: pointer;
 }

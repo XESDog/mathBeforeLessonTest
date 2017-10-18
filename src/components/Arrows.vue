@@ -21,7 +21,6 @@
         return {
           left:self.posx+'rem'
 
-
         }
       }
     },
