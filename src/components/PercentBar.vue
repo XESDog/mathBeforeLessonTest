@@ -47,16 +47,13 @@ export default {
   computed:{
     getInnerpercentbar:function(){
       const self = this;
-
       let pers = (this.currentNum/this.totalNum)*this.width*0.965;
       let cc = pers+'rem';
-
       return {
         width:cc,
         top:'0.04rem',
         left:'0.056rem',
         backgroundColor:self.color,
-
         height:self.innerHeight+'rem',
         borderTopLeftRadius: this.height/2+'rem',
         borderBottomLeftRadius: this.height/2+'rem',
@@ -66,16 +63,12 @@ export default {
     },
     getmask:function(){
       const self = this;
-
       let pers = (this.currentNum/this.totalNum)*this.width*0.965;
       let cc = pers+'rem';
-
       return {
         width:cc,
         top:'0.04rem',
         left:'0.056rem',
-
-
         height:self.innerHeight+'rem',
         borderTopLeftRadius: this.height/2+'rem',
         borderBottomLeftRadius: this.height/2+'rem',
@@ -91,17 +84,12 @@ export default {
         borderBottomLeftRadius: this.height/2+'rem',
         borderTopRightRadius: this.height/2+'rem',
         borderBottomRightRadius: this.height/2+'rem',
-
       }
     }
-
   },
-
   data () {
     return {
       rankscore:this.score
-
-
     }
   }
 }
@@ -109,26 +97,23 @@ export default {
 <style scoped="">
   .innerbar{
     position: relative;
-    width:50px;
+    width:.5rem;
     height:100%;
 
   }
   .percentbar_mask{
-    /*width:200px;*/
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
     flex-direction: row;
     justify-content: center;
     position:absolute;
-    top:0px;
-    left:0px;
+    top:0;
+    left:0;
     width:100%;
-    height: 30px;
-    height:30px;
-    border-radius: 5px;
+    height:.3rem;
+    border-radius: .05rem;
     background:-webkit-gradient(linear, center top, center bottom, from(rgba(0,0,0,0)), to(rgba(111,111,111,0.4)),color-stop(42%, rgba(0,0,0,0)));
-
   }
   .gap_w{
     width: 0.1rem;
@@ -136,22 +121,21 @@ export default {
   .percentbar{
     position:relative;
     background:-webkit-gradient(linear, center top, center bottom, from(#eac69a), to(#fef5df));
-
   }
   .lightbar{
     display: flex;
     position: relative;
-    top:0.04rem;
-
+    top:-0.04rem;
     width:100%;
-
-    height:2px;
+    border-top:1px solid white;
+    height:0.2rem;
+    transform: scaleY(0.12);
     background:rgba(255,255,255,0.8);
     z-index: 999;
   }
   .scores{
     position: relative;
-    top:0px;
+    top:0;
     font-size: 0.32rem;
     color:#f75a26;
     font-weight: bold;
@@ -159,7 +143,5 @@ export default {
     top:-0.27rem;
     width:0.5rem;
     text-align: left;
-
-
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div v-if="currentLevel>=0" class="container">
     <!--背景-->
-    <img class="full" src="../assets/questionBg.jpg">
+    <img draggable="false" class="full" src="../assets/questionBg.jpg">
     <!--题目-->
     <div class="describe"
          :style="{
@@ -13,7 +13,7 @@
     <!--答题时间-->
     <div class="time">{{formattedTime}}</div>
     <!--题干-->
-    <img class="stem" :src="path+'stem.png'">
+    <img draggable="false" class="stem" :src="path+'stem.png'">
     <!--选项-->
     <div class="optionContainer">
       <div class="option" v-for="index in questionContent.option">
@@ -23,22 +23,17 @@
                :value="index-1"
                v-model="userAnswer"
         >
-
-
         <label :for="'option'+index">
-
           <transition
-            v-on:enter="enter"
+            v-on:enter="enter",
             :css="false"
-
           >
-            <img v-if="isSelected(index-1)"
+            <img draggable="false" v-if="isSelected(index-1)"
                  :src="getLabelImgSelectedPath(index-1)"
             >
           </transition>
-          <img v-if="!isSelected(index-1)" :src="getLabelImgNormalPath(index-1)">
+          <img draggable="false" v-if="!isSelected(index-1)" :src="getLabelImgNormalPath(index-1)">
         </label>
-
       </div>
     </div>
 
@@ -68,13 +63,11 @@
 </template>
 <script>
   export default require('./QuestionCode')
-
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
   $fontStrokeColor: #097409;
   $globalWidth: 19.2rem;
   $globalHeight: 10.8rem;
-
   @mixin imgButton($prefix) {
     background: url('#{$prefix}Normal.png') no-repeat;
     background-size: cover;
@@ -90,25 +83,21 @@
     }
     outline: none;
   }
-
   .container {
     height: 100%;
   }
-
   .center {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
-
   .full {
     left: 0px;
     top: 0px;
     width: $globalWidth;
     height: $globalHeight;
   }
-
   .passed {
     position: absolute;
     color: white;
@@ -149,17 +138,14 @@
       color: sienna;
     }
   }
-
   .nextBtn {
     bottom: 0.9rem;
     right: 0.6rem;
     position: absolute;
     width: 2rem;
     height: 0.8rem;
-
     @include imgButton('../assets/nextQuestion')
   }
-
   .describe {
     font-size: 0.4rem;
     color: white;
@@ -168,7 +154,6 @@
     left: 2.6rem;
     top: 0.25rem;
   }
-
   .time {
     color: white;
     font-size: 0.4rem;
@@ -176,21 +161,18 @@
     right: 2.6rem;
     top: 0.25rem
   }
-
   .stem {
     position: absolute;
     width: 11rem;
     left: 4rem;
     top: 1.6rem;
   }
-
   .optionContainer {
     display: flex;
     justify-content: center;
     bottom: 0.4rem;
     position: absolute;
     width: $globalWidth;
-
     .option {
       margin: 0 0.5rem;
       img {
@@ -205,4 +187,3 @@
     }
   }
 </style>
-
