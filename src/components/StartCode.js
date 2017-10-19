@@ -7,7 +7,11 @@ export default {
         slidesPerView: 1,
         paginationClickable: true,
         spaceBetween: 0,
-        mousewheelControl: true
+        mousewheelControl: true,
+        autoplay:1000,
+        loop:false,
+        autoplayStopOnLast:true,
+        grabCursor:true,
       }
     }
   },
