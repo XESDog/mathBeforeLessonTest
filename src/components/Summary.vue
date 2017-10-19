@@ -90,8 +90,6 @@
   $classSchedule_r_w:$clsRight_1_w+$clsRight_2_w+$clsRight_3_w;
   $classSchedule_l_h:$classSchedule_h/7;
   $classSchedule_r_h:$classSchedule_h/12;
-
-
   .areabar {
     position: absolute;
     top: 4.45rem;
@@ -99,7 +97,6 @@
     width: 3.13rem;
     height: 4.37rem;
   }
-
   .userinfoband {
     position: relative;
     width: 4.9rem;
@@ -142,7 +139,6 @@
     line-height: 0.48rem;
     color:#9a592a;
   }
-
  .lessonTestLeft{
    position: absolute;
    display: flex;
@@ -203,7 +199,7 @@
         justify-content: center;
         flex-grow: 1;
         overflow: hidden;
-        font-size:0.2rem;
+        font-size:0.22rem;
         flex-wrap: nowrap;
         line-height: $clsLeft_unit_h;
       }

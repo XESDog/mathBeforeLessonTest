@@ -16,7 +16,7 @@ export default {
            direction:'vertical',
            mousewheelControl:true
         },
-        username:'刘昭廷',
+        username:'小恐龙',
         score:'100',
         greatComments_str:"",
         badComments_str:"",
@@ -164,8 +164,20 @@ export default {
         self.commentUpper = false;
       }
       self.badComments_str = _badComments_arr.join('，');
-      self.greatComments_str =   _greatComments_arr.join('，');
+      self.greatComments_str =_greatComments_arr.join('，');
       self.percentbarList = rankarr;
       self.point_arry=[radararr[3],radararr[2],radararr[1],radararr[0],radararr[5],radararr[4]];
+      //获得分数;
+      let score = self.$store.state.userAnswers;
+      let summaryscore = [];
+      score.forEach((item,index)=>{
+         item.forEach((item,index)=>{
+           summaryscore.push(item.score)
+         })
+      })
+      let resultscore =Array.prototype.reduce.call(summaryscore,(pvalue,cvalue)=>{
+          return cvalue+pvalue;
+      })
+      self.score = resultscore+'';
     }
 }
