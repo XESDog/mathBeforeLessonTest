@@ -3,6 +3,7 @@
  * @param state
  */
 export const currentQuestionContent = state => {
+  if(state.currentLevel<0)return null;
   const level = state.levels[state.currentLevel];
   const questions = level.questions;
 
@@ -46,6 +47,7 @@ export const lastQuestion = state => {
 }
 
 export const currentLevelName = state => {
+  if(state.currentLevel<0)return null;
   return state.levels[state.currentLevel].name
 }
 export const currentLevelRank = state => {
