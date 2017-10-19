@@ -11,10 +11,10 @@ const config = require('../config.json');
 
 const state = {
   levels: config.levels.concat(),
-  currentLevel: 0,
+  currentLevel: -1,
   totalLevel: config.levels.length,//当前关卡总数
-  currentQuestion: 0,
-  totalQuestion: config.levels[0].questions.length,//当前关卡问题总数
+  currentQuestion: -1,
+  totalQuestion:null /*config.levels[0].questions.length*/,//当前关卡问题总数
   nextLevelDescribe:config.nextLevelDescribe,
   lastLevelDescribe:config.lastLevelDescribe,
   /**

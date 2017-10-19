@@ -1,4 +1,3 @@
-import {currentQuestionContent} from "../store/getters";
 
 
 const dateFormat = require('dateformat');
@@ -22,7 +21,7 @@ export default {
         return dateFormat(this.passedTime * 1000, 'MM:ss');
       }
     },
-    ...mapState(['lastLevelDescribe', 'nextLevelDescribe']),
+    ...mapState(['lastLevelDescribe', 'nextLevelDescribe','currentLevel']),
     ...mapGetters({
       complete: 'complete',
       path: 'staticPath',
@@ -78,12 +77,16 @@ export default {
     time = setInterval(() => {
       //弹出通关面板，不再判断
       if (this.passedLevel) return;
+      if(this.currentLevel<0)return;
 
       this.passedTime++;
       if (this.passedTime >= this.$store.getters.answerTime) {
         this.submit();
       }
     }, 1000);
+  },
+  update(){
+
   },
   destroyed() {
     if (time) {
