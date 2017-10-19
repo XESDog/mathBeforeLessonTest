@@ -12,12 +12,11 @@ export default {
         swiperOption: {
           notNextTick: true,
            pagination: '.swiper-pagination',
-           slidesPerView: 'auto',
-           centeredSlides: true,
            resistanceRatio:0,
            direction:'vertical',
+           mousewheelControl:true
         },
-        username:'刘昭廷',
+        username:'小恐龙',
         score:'100',
         greatComments_str:"",
         badComments_str:"",
@@ -86,33 +85,38 @@ export default {
           },
           {
             times:'第5讲',
-            lesson:'有序思考',
-            respons:'专注力'
+            lesson:'表达力',
+            respons:'表达力'
           },
           {
             times:'第6讲',
-            lesson:'人民币的认识',
-            respons:'运算能力'
+            lesson:'有序思考',
+            respons:'逻辑推理能力'
           },{
             times:'第7讲',
-            lesson:'有趣的钟表',
-            respons:'时间管理能力'
+            lesson:'人民币的认识',
+            respons:'运算能力'
           },
           {
             times:'第8讲',
-            lesson:'玩转立体七巧板',
-            respons:'动手能力'
+            lesson:'有趣的时钟',
+            respons:'时间管理能力'
           },{
             times:'第9讲',
-            lesson:'对折的学问',
+            lesson:'玩转立体七巧板',
             respons:'动手能力'
           },
           {
             times:'第10讲',
-            lesson:'数独(三)',
-            respons:'专注力'
+            lesson:'对折的学问',
+            respons:'动手能力'
           },{
             times:'第11讲',
+            lesson:'数独',
+            respons:'专注力'
+          },
+          {
+            times:'第12讲',
             lesson:'期末复习',
             respons:''
           }
@@ -160,8 +164,20 @@ export default {
         self.commentUpper = false;
       }
       self.badComments_str = _badComments_arr.join('，');
-      self.greatComments_str =   _greatComments_arr.join('，');
+      self.greatComments_str =_greatComments_arr.join('，');
       self.percentbarList = rankarr;
       self.point_arry=[radararr[3],radararr[2],radararr[1],radararr[0],radararr[5],radararr[4]];
+      //获得分数;
+      let score = self.$store.state.userAnswers;
+      let summaryscore = [];
+      score.forEach((item,index)=>{
+         item.forEach((item,index)=>{
+           summaryscore.push(item.score)
+         })
+      })
+      let resultscore =Array.prototype.reduce.call(summaryscore,(pvalue,cvalue)=>{
+          return cvalue+pvalue;
+      })
+      self.score = resultscore+'';
     }
 }

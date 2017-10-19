@@ -4,7 +4,7 @@ export default {
     return {
       swiperOption: {
         direction: 'vertical',
-        slidesPerView: 1,
+         slidesPerView: 1,
         paginationClickable: true,
         spaceBetween: 0,
         mousewheelControl: true,
@@ -14,11 +14,5 @@ export default {
         grabCursor:true,
       }
     }
-  },
-  mounted() {
-    new Swiper('.swiper-container', {
-      // direction: 'vertical',
-      direction: 'horizontal',
-    })
   }
 };
