@@ -144,8 +144,10 @@ export default {
     top:0.04rem;
 
     width:100%;
+    height:0.01rem;
+    /*border-top:1px solid white;*/
 
-    height:2px;
+
     background:rgba(255,255,255,0.8);
     z-index: 999;
   }

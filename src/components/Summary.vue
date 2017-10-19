@@ -3,7 +3,7 @@
 
              <!-- 这部分放你要渲染的那些内容 -->
              <swiper-slide class="scene1"  >
-                   <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg1.jpg"/>
+                   <img draggable="false" style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg1.jpg"/>
                      <div class="areabar">
                      <PercentBar v-for="(item,key,index) in percentbarList" :key="index" :width='3.13'  :color='item.color' :height='0.33' :currentNum='item.currentNum' :score="item.score" :totalNum='100' style="margin-bottom:0.32rem"/>
                    </div>
@@ -14,8 +14,8 @@
                    <Arrows :posx="0"/>
              </swiper-slide>
              <swiper-slide class="scene2">
-                  <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg2.jpg"/>
-                 <Arrows :posx="-4.6" />
+                  <img draggable="false" style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg2.jpg"/>
+                 <Arrows :posx="-4.6" :posy="1.2"  />
                    <div class="congratulationList">
                      恭喜宝贝，顺利完成本次测评。<br/>宝贝的<br/>
                      <span v-html="greatComments_str"></span><span v-if="commentUpper">很强，要继续保持哦！</span>
@@ -24,26 +24,42 @@
                          <div style="height:0.15rem;" v-if="commentDown"> </div>
                       点击下方“分享战绩”，邀请小伙伴一起参加测评吧~
                    </div>
-                  <div class='button1'></div>
+
                      <RadarGraphic   :point_Array="point_arry"/>
              </swiper-slide>
              <swiper-slide class="scene3">
-                  <img style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg3.jpg"/>
+                  <img draggable="false" style="position:absolute;left:0;top:0;width:100%;height:auto;" src="static/summary_bg3.jpg"/>
                <div class="lessonTestLeft">
-                 <div v-for="(item,index) in leftUlList" :key="index" class="ullist">
-                   <div class="times">{{item.times}}</div>
-                   <div class="lesson">{{item.lesson}}</div>
-                   <div class='respons'>{{item.respons}}</div>
+                 <img class="header" draggable="false" src="static/img/lsntitle_l.png"/>
+                 <div class="title">
+                    <div>讲次</div>
+                    <div>课程内容</div>
+                    <div>应对能力</div>
                  </div>
+                 <div   class="scheduleLists" v-for="(item,index) in leftUlList" :key="index">
+                    <div>{{item.times}}</div>
+                    <div>{{item.lesson}}</div>
+                    <div>{{item.respons}}</div>
+                 </div>
+
                </div>
 
                <div class="lessonTestRight">
-                 <div v-for="(item,index) in rightUlList" :key="index" class="ullist">
-                   <div class="times">{{item.times}}</div>
-                   <div class="lesson">{{item.lesson}}</div>
-                   <div class='respons'>{{item.respons}}</div>
+
+                  <img class="header" draggable="false" src="static/img/lsntitle_r.png"/>
+                 <div class="title">
+                    <div>讲次</div>
+                    <div>课程内容</div>
+                    <div>应对能力</div>
                  </div>
+                 <div class="scheduleLists" v-for="(item,index) in rightUlList" :key="index" >
+                   <div >{{item.times}}</div>
+                   <div >{{item.lesson}}</div>
+                   <div >{{item.respons}}</div>
+                 </div>
+
                </div>
+
               <div class='button2'></div>
              </swiper-slide>
          </swiper>
@@ -56,6 +72,26 @@
 <style scoped="" lang="scss">
   $testfontSize: 0.5rem;
   $con_txsize: 0.4rem; //恭喜面板字体
+  //课程表单元格子宽度
+  $clsUnit_color1:#ffebcd;
+  $clsUnit_color2:#ffe3b8;
+  $clsLeft_1_w:1.03rem;
+  $clsLeft_2_w:2.85rem;
+  $clsLeft_3_w:1.81rem;
+
+  $clsRight_1_w:1.03rem;
+  $clsRight_2_w:2.85rem;
+  $clsRight_3_w:1.81rem;
+
+  $clsLeft_unit_h:0.57rem;
+  $clsRight_unit_h:0.33rem;
+  $classSchedule_h:4.92rem;
+  $classSchedule_l_w:$clsLeft_1_w+$clsLeft_2_w+$clsLeft_3_w;//课程表板块
+  $classSchedule_r_w:$clsRight_1_w+$clsRight_2_w+$clsRight_3_w;
+  $classSchedule_l_h:$classSchedule_h/7;
+  $classSchedule_r_h:$classSchedule_h/12;
+
+
   .areabar {
     position: absolute;
     top: 4.45rem;
@@ -106,90 +142,176 @@
     line-height: 0.48rem;
     color:#9a592a;
   }
-  .lessonTestRight {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    width: 5.7rem;
-    height: auto;
-    left: 0;
-    top: 0;
-    top: 2.8rem;
-    left: 9.8rem;
-    font-size: 0.2rem;
-    .ullist {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-      flex-wrap: nowrap;
-      position: relative;
-      height: 0.37rem;
-      div {
-        position: relative;
-        color: #9a592a;
-        height: 0.35rem;
-        font-weight: bold;
-        line-height: 0.4rem;
-      }
-      .times {
-        width: 1.06rem;
-        overflow: hidden;
-      }
-      .lesson {
-        width:2.85rem;
-        overflow: hidden;
-      }
-      .respons {
-        width: 1.75rem;
-        overflow: hidden;
-      }
-    }
-  }
-  .lessonTestLeft {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 5.7rem;
-    height: auto;
-    left: 0;
-    top: 0;
-    top: 2.8rem;
-    left: 3.58rem;
-    font-size:   0.25rem;
-    .ullist {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-      position: relative;
 
-      div {
-        position: relative;
-        color: #9a592a;
-        height: 0.68rem;
-        font-weight: bold;
-        height:0.57rem;
-        border:0.4rem;
-        line-height: 0.57rem;
-      }
-      .times {
-        width: 1.06rem;
+ .lessonTestLeft{
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   width:5.71rem;
+   height:4.9rem;
+   left:3.58rem;
+   top:1.9rem;
+   .header{
+     position: relative;
+     height:0.53rem;
+     width:100%;
+     background-size: 100% 100%;
+   }
+   .title{
+     display: flex;
+
+     position: relative;
+     height:0.37rem;
+     width:100%;
+     background:#d7b683;
+     font-size: 0.25rem;
+     line-height: 0.28rem;
+     font-weight: 600;
+     color:white;
+     box-sizing: border-box;
+     div{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-grow: 1;
+       flex-wrap: nowrap;
+     }
+     div:nth-child(1){
+       width:$clsLeft_1_w;
+       border-right:1px solid white;
+     };
+     div:nth-child(2){
+       width:$clsLeft_2_w;
+        border-right:1px solid white;
+     }
+     div:nth-child(3){
+       width:$clsLeft_3_w;
+     }
+   }
+   .scheduleLists{
+      display: flex;
+      flex-direction: row;
+      color:white;
+      color:#9a592a;
+      background:#ffe3b8;
+      overflow: hidden;
+      font-weight: 700;
+      height:$clsLeft_unit_h;
+      div{
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
         overflow: hidden;
+        font-size:0.2rem;
+        flex-wrap: nowrap;
+        line-height: $clsLeft_unit_h;
       }
-      .lesson {
-        width:2.87rem;
+      div:nth-child(1){
+        display: flex;
+        width:$clsLeft_1_w;
+        border-right:1px solid #d7b683;
         overflow: hidden;
+      };
+      div:nth-child(2){
+        width:$clsLeft_2_w;
+         border-right:1px solid #d7b683;
       }
-      .respons {
-        width: 1.81rem;
+      div:nth-child(3){
+        width:$clsLeft_3_w;
+      }
+   }
+   .scheduleLists:nth-child(2n){
+     background:#ffebcd;
+   }
+
+ }
+ .lessonTestRight{
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   width:5.71rem;
+   height:4.9rem;
+
+   left:9.83rem;
+   top:1.9rem;
+   .header{
+     position: relative;
+     height:0.53rem;
+     width:100%;
+     background-size: 100% 100%;
+
+   }
+   .title{
+     display: flex;
+
+     position: relative;
+     height:0.37rem;
+     width:100%;
+     background:#d7b683;
+     font-size: 0.25rem;
+     line-height: 0.28rem;
+     font-weight: 600;
+     color:white;
+     box-sizing: border-box;
+     div{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-grow: 1;
+       flex-wrap: nowrap;
+     }
+     div:nth-child(1){
+       width:$clsLeft_1_w;
+       border-right:1px solid white;
+     };
+     div:nth-child(2){
+       width:$clsLeft_2_w;
+        border-right:1px solid white;
+     }
+     div:nth-child(3){
+       width:$clsLeft_3_w;
+     }
+   }
+   .scheduleLists{
+      display: flex;
+      flex-direction: row;
+      color:white;
+      color:#9a592a;
+      background:#ffe3b8;
+      overflow: hidden;
+      font-weight: 700;
+      height:$clsRight_unit_h;
+      div{
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+         height:inherit;
         overflow: hidden;
+        font-size:0.2rem;
+        flex-wrap: nowrap;
+        line-height::$clsRight_unit_h;
       }
-    }
-  }
+      div:nth-child(1){
+        display: flex;
+        width:$clsLeft_1_w;
+        border-right:1px solid #d7b683;
+        overflow: hidden;
+      };
+      div:nth-child(2){
+        width:$clsLeft_2_w;
+         border-right:1px solid #d7b683;
+      }
+      div:nth-child(3){
+        width:$clsLeft_3_w;
+      }
+   }
+   .scheduleLists:nth-child(2n){
+     background:#ffebcd;
+   }
+
+ }
 .button1{
   position: absolute;
   width:2.8rem;

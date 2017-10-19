@@ -13,13 +13,18 @@
         posx:{
           type:Number,
           default:0
+        },
+        posy:{
+          type:Number,
+          default:0.2
         }
     },
     computed:{
       getDx:function(){
         const self = this;
         return {
-          left:self.posx+'rem'
+          left:self.posx+'rem',
+          bottom:self.posy+'rem'
 
         }
       }
@@ -47,7 +52,6 @@ img{
   left:0px;
   right:0px;
   width:0.68rem;
-  top:9.7rem;
   opacity: 1;
 
 }

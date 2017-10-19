@@ -1,12 +1,8 @@
 import {currentQuestionContent} from "../store/getters";
-
-
 const dateFormat = require('dateformat');
 const {mapState, mapGetters} = require('vuex');
 const Velocity = require('velocity-animate')
-
 let time;
-
 export default {
   data() {
     return {
@@ -68,16 +64,17 @@ export default {
       this.passedTime = 0;
       this.userAnswer = null;
       this.$store.dispatch('toNext')
-
     },
-    enter(el) {
+    enter(el,done) {
       Velocity(el, {scale: 1.1}, {duration: 2000,easing:'spring'})
-    }
+    },
+
   },
   mounted() {
     time = setInterval(() => {
       //弹出通关面板，不再判断
       if (this.passedLevel) return;
+
 
       this.passedTime++;
       if (this.passedTime >= this.$store.getters.answerTime) {
