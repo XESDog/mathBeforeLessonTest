@@ -65,8 +65,8 @@ export default {
       this.passedLevel = false;
       this.passedTime = 0;
       this.userAnswer = null;
-      // this.$store.dispatch('toNext');
-      this.$router.push('./gameMap')
+       this.$store.dispatch('toNext');
+    //  this.$router.push('./gameMap')
     },
     enter(el,done) {
       Velocity(el, {scale: 1.1}, {duration: 2000,easing:'spring'})
@@ -76,6 +76,7 @@ export default {
   mounted() {
     time = setInterval(() => {
       //弹出通关面板，不再判断
+
       if (this.passedLevel) return;
       if(this.currentLevel<0)return;
 

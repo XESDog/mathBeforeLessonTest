@@ -1,6 +1,8 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import LevelMonster from './LevelMonster.vue';
+const Velocity = require('velocity-animate')
+
 import {mapState, mapGetters} from 'vuex';
 export  default {
 
@@ -36,6 +38,12 @@ export  default {
               h:'3.06rem'
 
             },
+            lightPos:{
+              x:'-0.3rem',
+              y:'-1.2rem'
+            },
+            stateNew:false,
+            showCompleteTip:false
           },
           //Monster2
           {
@@ -56,6 +64,11 @@ export  default {
               h:'3.08rem'
 
             },
+            lightPos:{
+              x:'-0.68rem',
+              y:'-1.2rem'
+            },
+            showCompleteTip:false
           },
           //monster_3
           {
@@ -76,7 +89,12 @@ export  default {
               h:'3.14rem'
 
             },
-            levelAbledY:'1.58rem'
+            lightPos:{
+              x:'-0.42rem',
+              y:'-1rem'
+            },
+            levelAbledY:'1.58rem',
+            showCompleteTip:false
           },
 
           //monster4
@@ -98,7 +116,12 @@ export  default {
               h:'3.03rem'
 
             },
-            levelAbledY:'1.2rem'
+            lightPos:{
+              x:'-0.94rem',
+              y:'-1.2rem'
+            },
+            levelAbledY:'1.2rem',
+            showCompleteTip:false
           },
           //monster5
           {
@@ -119,7 +142,12 @@ export  default {
               h:'3.16rem'
 
             },
-            levelAbledY:'1.2rem'
+            lightPos:{
+              x:'-0.54rem',
+              y:'-1.3rem'
+            },
+            levelAbledY:'1.2rem',
+            showCompleteTip:false
           },
           //monster6
           {
@@ -140,7 +168,12 @@ export  default {
               h:'3.02rem'
 
             },
-            levelAbledY:'1.2rem'
+            lightPos:{
+              x:'0',
+              y:'-1.3rem'
+            },
+            levelAbledY:'1.2rem',
+            showCompleteTip:false
           },
         ]
 
@@ -149,19 +182,44 @@ export  default {
     computed:{
       mymonstersrc:function(){
         return "static/maps/monster_1.png"
-      }
+      },
+          ...mapState(['currentLevel'])
     },
     components:{
       LevelMonster
     },
     methods:{
-      clicklevelme(openstate){
-        if(!openstate)return;
-        this.$router.push('/question')
+      clicklevelme(item){
+
+        if(!item.stateOpen)return;
+        if(item.showCompleteTip)return;
+
+        this.toNext();
+      },
+      playAnime(self){
+          let obj = self;
+          let mytop = obj.style.top;
+          let upmytop = (parseInt(mytop)-0.6)+'rem';
+           Velocity(obj, {top:"-=0.2rem"}, {duration: 600,easing:'ease',loop:true,complete:()=>{
+             //self.showLight = !self.showLight
+
+           }})
+      },
+      toNext(){
+        this.$store.dispatch('toNext');
+        this.$router.push('/question');
       }
     },
     mounted(){
+
       const self = this;
+      let currentLevelNum = this.$store.state.currentLevel+1;
+      console.log(this.$store.state.currentLevel)
+
+      let passedLevelNum = 0;
+
+
+      let currentLevelArr = ['运算能力'];
       let xpos = 0;
       let levelPos=[
         {
@@ -171,7 +229,7 @@ export  default {
           x:"-2rem"
         },
         {
-          x:"-10rem"
+          x:"-13rem"
         },
         {
           x:"-15rem"
@@ -183,28 +241,35 @@ export  default {
       self.mapX = {
         transform:"translate(0,0)"
       }
-      // setInterval(()=>{
-      //   if(xpos>=4)return;
-      //   xpos++;
-      //   self.mapX = {
-      //     transform:"translate("+levelPos[xpos].x+",0px)"
-      //   }
-      //   console.log(self.mapX)
-      // },1200)
+
+      for(let i=0;i<currentLevelNum;i++){
+        this.levelMonsterList[i].showCompleteTip = true;
+        this.levelMonsterList[i].stateOpen = true;
+        this.levelMonsterList[i].stateNew=false;
+        this.levelMonsterList[currentLevelNum].stateOpen = true;
+
+      }
+
+        this.levelMonsterList[currentLevelNum].stateNew = true;
+      switch (currentLevelNum) {
+        case 3:
+          self.mapX = {
+            transform:"translate("+levelPos[0].x+",0px)"
+          }
+          case 4:
+            self.mapX = {
+              transform:"translate("+levelPos[2].x+",0px)"
+            }
+            case 5:
+              self.mapX = {
+                transform:"translate("+levelPos[4].x+",0px)"
+              }
+          break;
+        default:
+
+      }
+
 
     }
-=======
-const {mapState, mapGetters} = require('vuex');
-export default {
 
-  methods:{
-    toNext(){
-      this.$store.dispatch('toNext');
-      this.$router.push('/question');
-    }
-  },
-  computed: {
-    ...mapState(['currentLevel'])
-  }
->>>>>>> 8d5b0fe067becaba80a8f6bfbca6aab846b2c07b
 }

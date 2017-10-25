@@ -1,19 +1,35 @@
 <template>
   <div class="monster" :style="levelSyle" @click="clicklevel()">
-
+    <div class="light" v-if="showLight" :style="lightStyle">
+      <img draggable="false" src="static/maps/light.png" width="100%" height="auto"/>
+    </div>
     <img draggable="false" class="level_disabled" v-show="showLevel"  :src="levelDisabledSrc"  width="100%" height="auto"/>
     <img draggable="false" class="level_abled" v-show="showMonster"  :style="levelAbledStyle" :src="levelAbledSrc"  width="100%" height="auto"/>
-    <img draggable="false" class="monster" v-show="showMonster" :style="monsterStyle" :src="monsterSrc"/>
+    <img draggable="false"  ref="monster" class="monster" v-show="showMonster" :style="monsterStyle" :src="monsterSrc"/>
+    <div class="tipsDone" v-if="showCompleteTip">已完成测试!</div>
   </div>
 </template>
 <script>
+const Velocity = require('velocity-animate');
   export default{
     props:{
+      //已经完成状态
+
+      stateDone:{
+        type:Boolean,
+        default:false
+      },
+      //关卡是否开启
       stateOpen:{
         type:Boolean,
         default:false
       },
-      stateNewer:{},
+      showCompleteTip:false,
+
+      stateNew:{
+        type:Boolean,
+        default:false
+      },
       monstersrc:{
         type:String,
         default:"#"
@@ -34,6 +50,15 @@
             y:0,
             w:'3.32rem',
             h:'3.08rem'
+          }
+        }
+      },
+      lightPos:{
+        type:Object,
+        default(){
+          return{
+            x:0,
+            y:0
           }
         }
       },
@@ -75,6 +100,12 @@
           top:this.levelAbledY,
 
         },
+        lightStyle:{
+          left:this.lightPos.x,
+          top:this.lightPos.y
+        },
+        showlightState:this.stateNew,
+
 
 
       }
@@ -95,16 +126,27 @@
       },
       showLevel(){
         return !this.stateOpen
+      },
+      showLight(){
+        if(this.stateNew){
+          this.playAnime(this.$refs.monster)
+        }
+        return this.stateNew;
       }
     },
+
     methods:{
-      // clicklevel(item){
-      //   if(!item.stateOpen)return;
-      //   alert(88)
-      // }
       clicklevel(){
         this.$emit("CLICK_LEVEL")
+      },
+
+      playAnime(obj){
+        this.$emit("PLAY_ANIME",obj);
+
       }
+    },
+    mounted(){
+      //this.playAnime(this.$refs.monster);
     }
   }
 </script>
@@ -133,6 +175,47 @@
       display: block;
     }
   }
+  .tipsDone{
+    position: absolute;
+    width:2.6rem;
+    height:0.6rem;
+    border-radius: 2rem;
+    background-color:white;
+    color:black;
+    text-align: center;
+    line-height: 0.7rem;
+    font-size: 0.32rem;
+    margin:0 auto;
+    left:0px;
+    right:0;
+    top:-0.8rem;
+  }
+  .light{
+    position: relative;
+    width:5.09rem;
+    height:3.49rem;
+
+
+    img{
+      position: absolute;
+      display: block;
+      width:100%;
+      height:auto;
+    }
+  }
+
 
 }
+// .animeBall{
+//   animation: moving 1s infinite;
+// }
+// @keyframes moving {
+//   from{
+//     top:'0'
+//   }
+//   to{
+//     top:'-1rem'
+//   }
+//
+// }
 </style>
