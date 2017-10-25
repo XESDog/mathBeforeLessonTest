@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import LevelMonster from './LevelMonster.vue';
 import {mapState, mapGetters} from 'vuex';
@@ -192,4 +193,18 @@ export  default {
       // },1200)
 
     }
+=======
+const {mapState, mapGetters} = require('vuex');
+export default {
+
+  methods:{
+    toNext(){
+      this.$store.dispatch('toNext');
+      this.$router.push('/question');
+    }
+  },
+  computed: {
+    ...mapState(['currentLevel'])
+  }
+>>>>>>> 8d5b0fe067becaba80a8f6bfbca6aab846b2c07b
 }

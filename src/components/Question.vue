@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div v-if="currentLevel>=0" class="container">
     <!--背景-->
     <img draggable="false" class="full" src="../assets/questionBg.jpg">
     <!--题目-->
@@ -54,11 +54,12 @@
         <img style="width: 9.85rem;" src="../assets/passed.png"/>
         <p class="rank">{{currentLevelName}}:{{rank ? rank.rank : ''}}</p>
         <p class="levelDescribe">{{complete ? lastLevelDescribe : nextLevelDescribe}}</p>
-        <button v-show="!complete" @click="toNext"></button>
+        <button v-show="!complete" @click="$router.push('./gameMap')"></button>
         <button v-show="complete" @click="$router.push('./summary')"></button>
       </div>
     </div>
   </div>
+  <div v-else style="color: white">没有当前关卡数据</div>
 </template>
 <script>
   export default require('./QuestionCode')

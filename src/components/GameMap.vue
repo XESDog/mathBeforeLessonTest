@@ -2,6 +2,7 @@
     <div>
       <div>Game Map</div>
       <div>Level{{$store.state.currentLevel}}</div>
+<<<<<<< HEAD
       <!-- <button @click="$router.push('/question')">进入关卡</button> -->
       <div class="mapscene" :style="mapX">
 
@@ -17,6 +18,14 @@
             <img class="monster" src="static/maps/monster_1.png"/>
           </div> -->
       </div>
+=======
+      <button @click="toNext">进入第{{currentLevel+1}}关</button>
+      <!--<button @click="$router.push('/question')">进入第二关</button>-->
+      <!--<button @click="$router.push('/question')">进入第三关</button>-->
+      <!--<button @click="$router.push('/question')">进入第四关</button>-->
+      <!--<button @click="$router.push('/question')">进入第五关</button>-->
+      <!--<button @click="$router.push('/question')">进入第六关</button>-->
+>>>>>>> 8d5b0fe067becaba80a8f6bfbca6aab846b2c07b
     </div>
 </template>
 <script>
