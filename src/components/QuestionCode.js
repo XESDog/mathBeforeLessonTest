@@ -55,15 +55,18 @@ export default {
       this.$store.dispatch('submit', {userAnswer: [this.userAnswer], passedTime: this.passedTime})
       if (this.currentLevelLastQuestion) {
         this.passedLevel = true;
+      //  this.$router.push('./gameMap')
       } else {
         this.toNext();
+
       }
     },
     toNext() {
       this.passedLevel = false;
       this.passedTime = 0;
       this.userAnswer = null;
-      this.$store.dispatch('toNext')
+      // this.$store.dispatch('toNext');
+      this.$router.push('./gameMap')
     },
     enter(el,done) {
       Velocity(el, {scale: 1.1}, {duration: 2000,easing:'spring'})

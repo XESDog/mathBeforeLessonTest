@@ -27,6 +27,7 @@ export const toNext = ({dispatch, commit, state}) => {
   if (state.currentLevel === state.totalLevel - 1) {
     if (state.currentQuestion === state.totalQuestion - 1) {
       //全部完成
+    //  alert('all is done')
     } else {
       dispatch('toNextQuestion');
     }
@@ -39,6 +40,3 @@ export const toNext = ({dispatch, commit, state}) => {
 
   }
 }
-
-
-
