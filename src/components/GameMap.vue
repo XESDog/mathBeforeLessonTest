@@ -8,7 +8,7 @@
           <img draggable="false" src="static/maps/bg.jpg" height="100%" />
           <LevelMonster v-for="(item,index) in levelMonsterList" key="index" :levelabledsrc="item.levelabledsrc" :leveldisabledsrc="item.leveldisabledsrc"
           :monstersrc="item.monstersrc" :stateOpen="item.stateOpen" :monsterRect="item.monsterRect" :levelRect="item.levelRect" :lightPos="item.lightPos" :stateNew="item.stateNew" :levelAbledY="item.levelAbledY" :showCompleteTip="item.showCompleteTip"
-          @CLICK_LEVEL="clicklevelme(item)" @PLAY_ANIME="playAnime"/>
+          :yetCompleteTip="item.yetCompleteTip" @CLICK_LEVEL="clicklevelme(item)" @PLAY_ANIME="playAnime" @PLAY_MODAL="playModal" @PLAY_YET_MODAL="playModalYet"/>
 
       </div>
 

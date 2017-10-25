@@ -43,7 +43,8 @@ export  default {
               y:'-1.2rem'
             },
             stateNew:false,
-            showCompleteTip:false
+            showCompleteTip:false,
+            yetCompleteTip:true,
           },
           //Monster2
           {
@@ -68,7 +69,8 @@ export  default {
               x:'-0.68rem',
               y:'-1.2rem'
             },
-            showCompleteTip:false
+            showCompleteTip:false,
+            yetCompleteTip:true,
           },
           //monster_3
           {
@@ -94,7 +96,8 @@ export  default {
               y:'-1rem'
             },
             levelAbledY:'1.58rem',
-            showCompleteTip:false
+            showCompleteTip:false,
+                yetCompleteTip:true,
           },
 
           //monster4
@@ -121,7 +124,8 @@ export  default {
               y:'-1.2rem'
             },
             levelAbledY:'1.2rem',
-            showCompleteTip:false
+            showCompleteTip:false,
+            yetCompleteTip:true,
           },
           //monster5
           {
@@ -147,7 +151,8 @@ export  default {
               y:'-1.3rem'
             },
             levelAbledY:'1.2rem',
-            showCompleteTip:false
+            showCompleteTip:false,
+            yetCompleteTip:true,
           },
           //monster6
           {
@@ -173,7 +178,8 @@ export  default {
               y:'-1.3rem'
             },
             levelAbledY:'1.2rem',
-            showCompleteTip:false
+            showCompleteTip:false,
+              yetCompleteTip:true,
           },
         ]
 
@@ -191,9 +197,8 @@ export  default {
     methods:{
       clicklevelme(item){
 
-        if(!item.stateOpen)return;
-        if(item.showCompleteTip)return;
-
+        if(!item.stateOpen)return;//灰色的不能点
+        if(item.showCompleteTip)return;//如果已经玩过了，不执行,stateOpen表示怪物颜色不为灰色
         this.toNext();
       },
       playAnime(self){
@@ -204,6 +209,42 @@ export  default {
              //self.showLight = !self.showLight
 
            }})
+      },
+      playModal(self,stateTips){
+
+        //如果已经可以显示已经完成游戏状态时候，触发提示文字动画：
+        if(self  ){
+          let obj = self;
+          if(obj.style.opacity!=0)return;
+          obj.style.opacity = 0;
+
+          Velocity(obj, {top:"-=0.4rem",opacity:1}, {duration: 300,easing:'ease',delay:0,complete:()=>{
+            Velocity(obj, {opacity:0}, {duration: 300,easing:'ease',delay:1000,complete:()=>{
+
+                Velocity(obj,{top:"+=0.4rem"},{duration:1})
+            }})
+          }})
+        }
+
+      },
+      //提示已完成提示框
+      playModalYet(self){
+        console.log(self)
+
+        //如果已经可以显示已经完成游戏状态时候，触发提示文字动画：
+        if(self){
+          let obj = self;
+          if(obj.style.opacity!=0)return;
+          obj.style.opacity = 0;
+
+          Velocity(obj, {top:"-=0.4rem",opacity:1}, {duration: 300,easing:'ease',delay:0,complete:()=>{
+            Velocity(obj, {opacity:0}, {duration: 300,easing:'ease',delay:1000,complete:()=>{
+
+                Velocity(obj,{top:"+=0.4rem"},{duration:1})
+            }})
+          }})
+        }
+
       },
       toNext(){
         this.$store.dispatch('toNext');
@@ -243,13 +284,12 @@ export  default {
       }
 
       for(let i=0;i<currentLevelNum;i++){
-        this.levelMonsterList[i].showCompleteTip = true;
+         this.levelMonsterList[i].showCompleteTip = true;
         this.levelMonsterList[i].stateOpen = true;
         this.levelMonsterList[i].stateNew=false;
         this.levelMonsterList[currentLevelNum].stateOpen = true;
-
       }
-
+       //下一关currentLevelNum:stateNew发光显示
         this.levelMonsterList[currentLevelNum].stateNew = true;
       switch (currentLevelNum) {
         case 3:

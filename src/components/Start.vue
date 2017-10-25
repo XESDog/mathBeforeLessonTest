@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <swiper :options="swiperOption" class="swiper-box">
-      <swiper-slide class="swiper-item"><img src="../assets/start_0.jpg"/></swiper-slide>
+      <swiper-slide class="swiper-item">
+          <div></div>
+      </swiper-slide>
       <swiper-slide class="swiper-item"><img src="../assets/start_1.jpg"/></swiper-slide>
       <swiper-slide class="swiper-item"><img src="../assets/start_2.jpg"/></swiper-slide>
     </swiper>

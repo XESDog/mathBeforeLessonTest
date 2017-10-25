@@ -6,7 +6,9 @@
     <img draggable="false" class="level_disabled" v-show="showLevel"  :src="levelDisabledSrc"  width="100%" height="auto"/>
     <img draggable="false" class="level_abled" v-show="showMonster"  :style="levelAbledStyle" :src="levelAbledSrc"  width="100%" height="auto"/>
     <img draggable="false"  ref="monster" class="monster" v-show="showMonster" :style="monsterStyle" :src="monsterSrc"/>
-    <div class="tipsDone" v-if="showCompleteTip">已完成测试!</div>
+    <div class="tipsDone" ref="tipsModal" v-show="showCompleteTip">已完成测试</div>
+    <div class="tipsYet" ref="tipsModalYet" v-show="yetCompleteTip">还未解锁哦！</div>
+
   </div>
 </template>
 <script>
@@ -24,7 +26,8 @@ const Velocity = require('velocity-animate');
         type:Boolean,
         default:false
       },
-      showCompleteTip:false,
+      showCompleteTip:true,
+      yetCompleteTip:true,
 
       stateNew:{
         type:Boolean,
@@ -107,7 +110,6 @@ const Velocity = require('velocity-animate');
         showlightState:this.stateNew,
 
 
-
       }
     },
 
@@ -132,18 +134,34 @@ const Velocity = require('velocity-animate');
           this.playAnime(this.$refs.monster)
         }
         return this.stateNew;
-      }
+      },
+
     },
 
     methods:{
       clicklevel(){
-        this.$emit("CLICK_LEVEL")
-      },
 
+        this.$emit("CLICK_LEVEL");
+        //通过判断是否玩过此关卡，切换不同的Tip提示文字动画
+        if(this.stateOpen){
+            this.playModal(this.$refs.tipsModal);
+        }else{
+          this.playYetModal(this.$refs.tipsModalYet);
+
+        }
+
+        //this.playYetModal(this.$refs.tipsModal)
+      },
       playAnime(obj){
         this.$emit("PLAY_ANIME",obj);
-
+      },
+      playModal(obj){
+        this.$emit("PLAY_MODAL",obj,this.stateNew);
+      },
+      playYetModal(obj){
+        this.$emit("PLAY_YET_MODAL",obj,this.stateNew);
       }
+
     },
     mounted(){
       //this.playAnime(this.$refs.monster);
@@ -188,7 +206,24 @@ const Velocity = require('velocity-animate');
     margin:0 auto;
     left:0px;
     right:0;
-    top:-0.8rem;
+    top:-0.2rem;
+    opacity:0;
+  }
+  .tipsYet{
+    position: absolute;
+    width:2.6rem;
+    height:0.6rem;
+    border-radius: 2rem;
+    background-color:white;
+    color:black;
+    text-align: center;
+    line-height: 0.7rem;
+    font-size: 0.32rem;
+    margin:0 auto;
+    left:0px;
+    right:0;
+    top:-0.2rem;
+    opacity:0;
   }
   .light{
     position: relative;
@@ -206,16 +241,5 @@ const Velocity = require('velocity-animate');
 
 
 }
-// .animeBall{
-//   animation: moving 1s infinite;
-// }
-// @keyframes moving {
-//   from{
-//     top:'0'
-//   }
-//   to{
-//     top:'-1rem'
-//   }
-//
-// }
+
 </style>
