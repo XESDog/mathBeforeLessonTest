@@ -9,9 +9,12 @@ export default {
       userAnswer: null,
       passedTime: 0,
       passedLevel: false,
+      avatarLogo:"static/img/avatar1.png",
+      passLevelBg:"static/img/passbg1.png",
     }
   },
   computed: {
+
     formattedTime: {
       get() {
         if (this.passedTime === 0) return '00:00';
@@ -63,7 +66,8 @@ export default {
       this.passedLevel = false;
       this.passedTime = 0;
       this.userAnswer = null;
-      this.$store.dispatch('toNext')
+       this.$store.dispatch('toNext');
+    //  this.$router.push('./gameMap')
     },
     enter(el,done) {
       Velocity(el, {scale: 1.1}, {duration: 2000,easing:'spring'})
@@ -71,12 +75,41 @@ export default {
 
   },
   mounted() {
+
+    const self = this;
+    switch (this.currentLevelName) {
+      case "运算能力":
+        self.avatarLogo = "static/img/avatar1.png";
+        self.passLevelBg = "static/img/passbg1.png";
+        break;
+        case "专注力":
+            self.avatarLogo = "static/img/avatar2.png"
+              self.passLevelBg = "static/img/passbg2.png";
+        break;
+        case "推理能力":
+            self.avatarLogo = "static/img/avatar3.png"
+              self.passLevelBg = "static/img/passbg3.png";
+        break;
+        case "观察能力":
+            self.avatarLogo = "static/img/avatar4.png";
+              self.passLevelBg = "static/img/passbg4.png";
+        break;
+        case "动手能力":
+            self.avatarLogo = "static/img/avatar5.png";
+              self.passLevelBg = "static/img/passbg5.png";
+        break;
+        case "时间管理能力":
+            self.avatarLogo = "static/img/avatar5.png";
+            self.passLevelBg = "static/img/passbg5.png";
+        break;
+      default:
+        break;
+
+    }
     time = setInterval(() => {
       //弹出通关面板，不再判断
       if (this.passedLevel) return;
       if(this.currentLevel<0)return;
-
-
       this.passedTime++;
       if (this.passedTime >= this.$store.getters.answerTime) {
         this.submit();

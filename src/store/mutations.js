@@ -10,6 +10,7 @@ export const nextLevel = state => {
   state.currentLevel++;
   state.currentQuestion = 0;
   state.totalQuestion = state.levels[state.currentLevel].questions.length;
+
 }
 
 export const nextQuestion = state => {

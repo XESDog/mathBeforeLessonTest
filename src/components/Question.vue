@@ -2,10 +2,12 @@
   <div v-if="currentLevel>=0" class="container">
     <!--背景-->
     <img draggable="false" class="full" src="../assets/questionBg.jpg">
+    <img draggable="false" class="avatar" :src="avatarLogo"/>
     <!--题目-->
     <div class="describe"
          :style="{
-            'font-size':questionContent.describe.length>30?'0.32rem':'0.4rem'
+            'fontSize':questionContent.describe.length>30?'0.32rem':'0.4rem',
+
           }"
     >
       {{questionContent.describe}}
@@ -42,7 +44,6 @@
       v-show="!complete"
       @click="submit">
     </button>
-
     <button v-show="complete"
             class="nextBtn"
             @click="submit"
@@ -51,11 +52,14 @@
     <div v-show="passedLevel" class="passed full">
       <div class="modal"></div>
       <div class="center">
-        <img style="width: 9.85rem;" src="../assets/passed.png"/>
+        <img draggable="false" class="avatarLight" src="../assets/passlight.png"/>
+        <img draggable="false"  class="avatarPassLevel"  :src="passLevelBg"/>
+        <!-- <img draggable="false" class="avatarPassLevel" :src="avatarLogo"/> -->
         <p class="rank">{{currentLevelName}}:{{rank ? rank.rank : ''}}</p>
         <p class="levelDescribe">{{complete ? lastLevelDescribe : nextLevelDescribe}}</p>
         <button v-show="!complete" @click="$router.push('./gameMap')"></button>
-        <button v-show="complete" @click="$router.push('./summary')"></button>
+        <button  v-show="complete"></button>
+        <img draggable="false" v-show="complete" @click="$router.push('./summary')"  class="getsummaryBtn" src="../assets/getsumbtn.png"/>
       </div>
     </div>
   </div>
@@ -86,6 +90,36 @@
   .container {
     height: 100%;
   }
+  .getsummaryBtn{
+    cursor: pointer;
+    position: absolute;
+    width:2.24rem;
+    height:auto;
+    transform: translate(-50%,0);
+    top:2.56rem;
+  }
+  //左下角动物头像
+  .avatar{
+    position: absolute;
+    display: block;
+    width:3rem;
+    height:3rem;
+    left:0.5rem;
+    bottom:0.4rem;
+  }
+  //跳转界面的动物头像
+  .avatarPassLevel{
+    position: absolute;
+    display: block;
+    width:6rem;
+    transform: translate(-50%,-50%);
+  }
+  .avatarLight{
+    position: absolute;
+    z-index: 0;
+    transform: translate(-50%,-86%);
+    width:10.5rem;
+  }
   .center {
     position: absolute;
     left: 50%;
@@ -109,6 +143,7 @@
       bottom: 1rem;
       width: 2.21rem;
       height: 0.89rem;
+      top:2.6rem;
       @include imgButton('../assets/nextLevel')
     }
     .modal {
@@ -121,21 +156,24 @@
       text-align: center;
       left: 48%;
       transform: translate(-50%);
-      top: 6.1rem;
-      font-size: 0.46rem;
+      top: 1.05rem;
+      font-size: 0.36rem;
       position: absolute;
       margin: 0px;
       color: red;
+      width:3rem;
+      font-weight: bold;
     }
     .levelDescribe {
       text-align: center;
       left: 48%;
       transform: translate(-50%);
-      top: 6.8rem;
+      top: 1.8rem;
       font-size: 0.36rem;
       position: absolute;
       margin: 0px;
       color: sienna;
+      width:3.5rem;
     }
   }
   .nextBtn {
@@ -149,10 +187,10 @@
   .describe {
     font-size: 0.4rem;
     color: white;
-    text-align: center;
     position: absolute;
-    left: 2.6rem;
+    left: 2.4rem;
     top: 0.25rem;
+    width:12.3rem
   }
   .time {
     color: white;
