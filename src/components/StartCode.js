@@ -11,6 +11,7 @@ export default {
         spaceBetween: 0,
         mousewheelControl: true,
         resistanceRatio:0,
+
       }
     }
   },

@@ -35,16 +35,16 @@ const currentLevelRank = (state) => {
     getedScore += value.score;
   })
   rate = getedScore / (state.totalQuestion * state.scoreEveryQuestion);
-  if (rate < 0.1) {
+  if (rate <= 0.1) {
     return {rank: "D", rate}
   }
-  if (rate < 0.7) {
+  if (rate <= 0.7) {
     return {rank: "C", rate}
   }
-  if (rate < 0.85) {
+  if (rate <= 0.85) {
     return {rank: "B", rate}
   }
-  if (rate < 0.9) {
+  if (rate <= 0.9) {
     return {rank: 'A', rate}
   }
   return {rank: 'A+', rate};
