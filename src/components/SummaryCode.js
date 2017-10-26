@@ -134,7 +134,7 @@ export default {
       }
     },
     components:{swiper,swiperSlide,PercentBar,RadarGraphic,Arrows,Buttons},
-    mounted:function(){
+    mounted(){
       let _badComments_arr=[];
       let _greatComments_arr=[]
       let comments = ['运算能力','专注力','推理能力','观察能力','动手能力','时间管理'];

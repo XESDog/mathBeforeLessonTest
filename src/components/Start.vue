@@ -1,13 +1,23 @@
 <template>
   <div class="container">
-    <swiper :options="swiperOption" class="swiper-box">
+    <swiper ref="mySwiper" :options="swiperOption" class="swiper-box">
       <swiper-slide class="swiper-item">
-          <div></div>
+          <img draggable="false" class="cartoon1" src="static/begin/cartoon.png" />
+          <img draggable="false"  class="cartoon2" src="static/begin/cartoon2.png" />
       </swiper-slide>
-      <swiper-slide class="swiper-item"><img src="../assets/start_1.jpg"/></swiper-slide>
-      <swiper-slide class="swiper-item"><img src="../assets/start_2.jpg"/></swiper-slide>
+      <swiper-slide class="swiper-item">
+        <img draggable="false"  class="cartoon3" src="static/begin/cartoon3.png" />
+        <img draggable="false"  class="cartoon4" src="static/begin/cartoon4.png" />
+        <img draggable="false"  class="cartoon5" src="static/begin/cartoon5.png" />
+      </swiper-slide>
+      <swiper-slide class="swiper-item">
+        <img draggable="false"  class="cartoon6" src="static/begin/cartoon6.png" />
+        <img draggable="false" class="cartoon7"  src="static/begin/cartoon7.png" />
+      </swiper-slide>
+      <img @click="$router.push('/gamemap')" draggable="false" class="btnstart" src="static/begin/startbtn.png" />
     </swiper>
-    <button @click="$router.push('/gamemap')">开始测试</button>
+
+
   </div>
 </template>
 <script>
@@ -20,36 +30,78 @@
   .container {
     height: 100%
   }
-  button {
+  .btnstart{
+    cursor: pointer;
     z-index: 2;
     position: absolute;
-    right: 1rem;
-    bottom: 1rem;
+    display: block;
+    right: 1.2rem;
+    bottom: 0.8rem;
+    width:3.31rem;
+    height:1.60rem;
+    visibility: hidden;
+
   }
 
+
   .swiper-box {
+    position: absolute;
+    left:0;
+    top:0;
     width: 100%;
     height: 100%;
-    margin: 0 auto;
+
+
   }
 
   .swiper-item {
-    height: 100%;
+    position: relative;
+    height: 19.2rem;
     text-align: center;
-    font-size: 18px;
-    background: #fff;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
+  }
+  img{
+    position: absolute;
+    display: block;
+  }
+  .cartoon1{
+    left:0;
+    top:0;
+    height:10.8rem;
+  }
+  .cartoon2{
+    right:0;
+    top:0;
+    width:12.70rem;
+    height:10.8rem;
+  }
+  .cartoon3{
+    left:0;
+    top:0;
+    width:6.48rem;
+    height:10.8rem;
+  }
+  .cartoon4{
+    left:5.268rem;
+    top:0;
+    width:8.75rem;
+    height:10.8rem;
+  }
+  .cartoon5{
+    right:0;
+    top:0;
+    width:6.74rem;
+    height:10.8rem;
+  }
+  .cartoon6{
+    left:0;
+    top:0;
+    width:6.91rem;
+    height:10.8rem;
+  }
+  .cartoon7{
+    right:0;
+    top:0;
+    width:14.24rem;
+    height:10.8rem;
   }
 </style>

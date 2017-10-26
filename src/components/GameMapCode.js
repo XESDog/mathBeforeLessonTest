@@ -229,7 +229,7 @@ export  default {
       },
       //提示已完成提示框
       playModalYet(self){
-        console.log(self)
+
 
         //如果已经可以显示已经完成游戏状态时候，触发提示文字动画：
         if(self){
@@ -252,11 +252,8 @@ export  default {
       }
     },
     mounted(){
-
       const self = this;
       let currentLevelNum = this.$store.state.currentLevel+1;
-      console.log(this.$store.state.currentLevel)
-
       let passedLevelNum = 0;
 
 
